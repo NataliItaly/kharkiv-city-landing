@@ -7,919 +7,1299 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Kharkiv City</title>
 
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link
+      rel="shortcut icon"
+      href="https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: rgb(190, 242, 242);
-  color: rgb(6 6 6);
-  font-family: "Roboto", sans-serif;
-}
-.war {
-  background-color: rgb(104 40 40);
-  color: white;
-}
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-  padding: 10px 20px;
-}
-a {
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.4s;
-  color: inherit;
-  padding: 10px;
-}
-ul {
-  list-style: none;
-}
-section {
-  margin-bottom: 20px;
-}
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(220, 237, 251, 0.1);
-  z-index: 1;
-}
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 50px;
-}
-.logo {
-  width: 70px;
-  height: 70px;
-  background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.header-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-.time-buttons-wrapper {
-  width: 350px;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-}
-.time-btn {
-  width: 120px;
-  padding: 10px 5px;
-  background-color: #30a3f5;
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 20px;
-}
-body.war .time-btn {
-  background-color: rgb(217 61 25 / 70%);
-}
-button:focus {
-  outline: none;
-}
-.language-buttons-wrapper {
-  width: 90px;
-  display: flex;
-  justify-content: space-between;
-}
-.language-btn {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: #444343;
-  border: none;
-  cursor: pointer;
-  background-color: #30a3f5;
-}
-.current-language {
-  background-color: yellow;
-}
-.header-link {
-  display: block;
-  transition: 0.4s;
-}
-.header-link:hover {
-  text-decoration: underline;
-}
-.main {
-  padding-bottom: 40px;
-}
-.first-screen {
-  position: relative;
-  height: 700px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: background-image 0.6s ease-in-out;
-}
-.first-screen .container {
-  padding: 10px 0;
-  height: 100%;
-}
-h1 {
-  width: fit-content;
-  background-color: rgba(220, 237, 251, 0.7);
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-size: 50px;
-  text-align: center;
-  margin: 70px auto 0;
-  color: rgb(88 83 83);
-  padding: 0 20px;
-  border-radius: 15px;
-}
-.date-time-block {
-  position: absolute;
-  background-color: rgba(220, 237, 251, 0.7);
-  padding: 10px 20px;
-  border-radius: 10px;
-  top: 170px;
-  left: 20px;
-  text-align: center;
-}
-.weather-block {
-  position: absolute;
-  top: 170px;
-  right: 20px;
-  background-color: rgba(220, 237, 251, 0.7);
-  padding: 10px;
-  border-radius: 10px 20px;
-  text-align: center;
-}
-.weather-description {
-  text-align: center;
-}
-.week-forecast {
-  max-width: 100%;
-  position: absolute;
-  bottom: 40px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  background-color: rgba(220, 237, 251, 0.7);
-  padding: 10px;
-  border-radius: 10px;
-}
-.day-forecast {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(190, 242, 242);
+        color: rgb(6 6 6);
+        font-family: "Roboto", sans-serif;
+      }
+      .war {
+        background-color: rgb(104 40 40);
+        color: white;
+      }
+      .container {
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+        padding: 10px 20px;
+      }
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.4s;
+        color: inherit;
+        padding: 10px;
+      }
+      ul {
+        list-style: none;
+      }
+      section {
+        margin-bottom: 20px;
+      }
+      .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(220, 237, 251, 0.1);
+        z-index: 1;
+      }
+      .header-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+      }
+      .logo {
+        width: 70px;
+        height: 70px;
+        background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .header-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+      }
+      .time-buttons-wrapper {
+        width: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+      }
+      .time-btn {
+        width: 120px;
+        padding: 10px 5px;
+        background-color: #30a3f5;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 20px;
+      }
+      body.war .time-btn {
+        background-color: rgb(217 61 25 / 70%);
+      }
+      button:focus {
+        outline: none;
+      }
+      .language-buttons-wrapper {
+        width: 90px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .language-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: #444343;
+        border: none;
+        cursor: pointer;
+        background-color: #30a3f5;
+      }
+      .current-language {
+        background-color: yellow;
+      }
+      .header-link {
+        display: block;
+        transition: 0.4s;
+      }
+      .header-link:hover {
+        text-decoration: underline;
+      }
+      .main {
+        padding-bottom: 40px;
+      }
+      .first-screen {
+        position: relative;
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background-image 0.6s ease-in-out;
+      }
+      .first-screen .container {
+        padding: 10px 0;
+        height: 100%;
+      }
+      h1 {
+        width: fit-content;
+        background-color: rgba(220, 237, 251, 0.7);
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        font-size: 50px;
+        text-align: center;
+        margin: 70px auto 0;
+        color: rgb(88 83 83);
+        padding: 0 20px;
+        border-radius: 15px;
+      }
+      .date-time-block {
+        position: absolute;
+        background-color: rgba(220, 237, 251, 0.7);
+        padding: 10px 20px;
+        border-radius: 10px;
+        top: 170px;
+        left: 20px;
+        text-align: center;
+      }
+      .weather-block {
+        position: absolute;
+        top: 170px;
+        right: 20px;
+        background-color: rgba(220, 237, 251, 0.7);
+        padding: 10px;
+        border-radius: 10px 20px;
+        text-align: center;
+      }
+      .weather-description {
+        text-align: center;
+      }
+      .week-forecast {
+        max-width: 100%;
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        background-color: rgba(220, 237, 251, 0.7);
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .day-forecast {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-body.war .date-time-block,
-body.war .weather-block,
-body.war .week-forecast {
-  background-color: rgb(217 61 25 / 70%);
-}
-#history {
-  position: relative;
-  display: flex;
-}
-#history .container {
-  width: 70%;
-}
+      body.war .date-time-block,
+      body.war .weather-block,
+      body.war .week-forecast {
+        background-color: rgb(217 61 25 / 70%);
+      }
+      #history {
+        position: relative;
+        display: flex;
+      }
+      #history .container {
+        width: 70%;
+      }
 
-.history-block {
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-.section-title {
-  margin-bottom: 20px;
-  font-weight: 500;
-  margin-left: 40px;
-}
-.history-title {
-  margin-bottom: 10px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-left: 40px;
-}
-.history-description-wrapper {
-  overflow: hidden;
-}
-.history-description {
-  transition: transform 0.4s;
-}
-.hidden {
-  display: none;
-  transform: translateY(-100%);
-}
-aside {
-  width: 30%;
-  background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/ukraine-emblem.png");
-  background-repeat: no-repeat;
-  background-position-y: 100px;
-  background-size: contain;
-}
-#about .section-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.secondary-slider-wrapper {
-  width: 800px;
-  height: 400px;
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-}
-.sidebar {
-  height: fit-content;
-  width: 35%;
-  position: relative;
-  top: -2000px;
-  transition: transform 0.5s ease-in-out;
-  background-color: #cef5f3;
-}
+      .history-block {
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .section-title {
+        margin-bottom: 20px;
+        font-weight: 500;
+        margin-left: 40px;
+      }
+      .history-title {
+        margin-bottom: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-left: 40px;
+      }
+      .history-description-wrapper {
+        overflow: hidden;
+      }
+      .history-description {
+        transition: transform 0.4s;
+      }
+      .hidden {
+        display: none;
+        transform: translateY(-100%);
+      }
+      aside {
+        width: 30%;
+        background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/ukraine-emblem.png");
+        background-repeat: no-repeat;
+        background-position-y: 100px;
+        background-size: contain;
+      }
+      #about .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .secondary-slider-wrapper {
+        width: 800px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+      }
+      .sidebar {
+        height: fit-content;
+        width: 35%;
+        position: relative;
+        top: -2000px;
+        transition: transform 0.5s ease-in-out;
+        background-color: #cef5f3;
+      }
 
-body.war .sidebar {
-  background-color: #6a1c05;
-}
+      body.war .sidebar {
+        background-color: #6a1c05;
+      }
 
-.sidebar > div {
-  height: 400px;
-  padding: 40px 20px;
-  width: 100%;
-  position: relative;
-}
+      .sidebar > div {
+        height: 400px;
+        padding: 40px 20px;
+        width: 100%;
+        position: relative;
+      }
 
-.sidebar h4 {
-  font-weight: 400;
-  margin-bottom: 20px;
-}
+      .sidebar h4 {
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
 
-.main-slide {
-  height: fit-content;
-  width: 65%;
-  transition: transform 0.5s ease-in-out;
-}
+      .main-slide {
+        height: fit-content;
+        width: 65%;
+        transition: transform 0.5s ease-in-out;
+      }
 
-.main-slide > div {
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-}
+      .main-slide > div {
+        height: 400px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+      }
 
-.controls button {
-  position: absolute;
-  left: 35%;
-  top: 50%;
-  z-index: 100;
-  font-size: 22px;
-  color: #444343;
-  border: none;
-  padding: 15px;
-  border-radius: 5px;
-}
+      .controls button {
+        position: absolute;
+        left: 35%;
+        top: 50%;
+        z-index: 100;
+        font-size: 22px;
+        color: #444343;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+      }
 
-.controls .down-button {
-  transform: translate(85px, -120px);
-}
+      .controls .down-button {
+        transform: translate(85px, -120px);
+      }
 
-.controls .up-button {
-  transform: translate(85px, 120px);
-}
-.footer .container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  font-size: 15px;
-}
-.city-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-}
-.city-link {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(61, 59, 59, 0.481);
-}
-.creators-item {
-  width: fit-content;
-}
-.creators-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.creators-link {
-  padding: 10px 0;
-}
-
+      .controls .up-button {
+        transform: translate(85px, 120px);
+      }
+      .footer .container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        font-size: 15px;
+      }
+      .city-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+      .city-link {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(61, 59, 59, 0.481);
+      }
+      .creators-item {
+        width: fit-content;
+      }
+      .creators-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .creators-link {
+        padding: 10px 0;
+      }
     </style>
   </head>
   <body>
     <header class="header">
       <div class="container">
-      <nav class="header-nav">
-        <div class="logo"></div>
-        <ul class="header-menu">
-          <li class="header-menu-item"><a href="#history" class="header-link" data-translate="history-link">History of Kharkiv</a></li>
-          <li class="header-menu-item"><a href="#about" class="header-link" data-translate="about-link">About Kharkiv</a></li>
-          <li class="header-menu-item"></li>
-        </ul>
-        <div class="language-buttons-wrapper">
-          <button class="language-btn current-language en" data-language="en">EN</button>
-          <button class="language-btn ua" data-language="ua">UA</button>
-        </div>
-      </nav>
+        <nav class="header-nav">
+          <div class="logo"></div>
+          <ul class="header-menu">
+            <li class="header-menu-item">
+              <a
+                href="#history"
+                class="header-link"
+                data-translate="history-link"
+                >History of Kharkiv</a
+              >
+            </li>
+            <li class="header-menu-item">
+              <a href="#about" class="header-link" data-translate="about-link"
+                >About Kharkiv</a
+              >
+            </li>
+            <li class="header-menu-item"></li>
+          </ul>
+          <div class="language-buttons-wrapper">
+            <button class="language-btn current-language en" data-language="en">
+              EN
+            </button>
+            <button class="language-btn ua" data-language="ua">UA</button>
+          </div>
+        </nav>
       </div>
     </header>
     <main class="main">
       <section class="first-screen">
         <div class="container">
           <h1 data-translate="title">From Kharkiv With Love</h1>
-        <div class="audioplayer"></div>
-        <div class="date-time-block">
-          <div class="date"></div>
-          <div class="time"></div>
-        </div>
-        <div class="weather-block">
-          <p><span data-translate="temperature">Temperature</span> <span class="current-temperature"></span>°C</p>
-          <p><span data-translate="feels-temperature">Feels like</span> <span class="current-feel-temperature"></span>°C</p>
-          <p class="weather-icon"></p>
-          <p class="weather-description"></p>
-          <p><span data-translate="wind">Wind speed</span> <span class="current-wind"></span><span data-translate="wind-metric"> m/s</span></p>
-          <p><span data-translate="humidity">Humidity</span> <span class="current-humidity"></span> %</p>
-          <p><span data-translate="pressure">Pressure</span> <span class="current-pressure"></span></p>
-          <p><span data-translate="sunrise">Sunrise</span> <span class="sunrise"></span></p>
-          <p><span data-translate="sunset">Sunset</span> <span class="sunset"></span></p>
-        </div>
-        <div class="week-forecast"></div>
+          <div class="audioplayer"></div>
+          <div class="date-time-block">
+            <div class="date"></div>
+            <div class="time"></div>
+          </div>
+          <div class="weather-block">
+            <p>
+              <span data-translate="temperature">Temperature</span>
+              <span class="current-temperature"></span>°C
+            </p>
+            <p>
+              <span data-translate="feels-temperature">Feels like</span>
+              <span class="current-feel-temperature"></span>°C
+            </p>
+            <p class="weather-icon"></p>
+            <p class="weather-description"></p>
+            <p>
+              <span data-translate="wind">Wind speed</span>
+              <span class="current-wind"></span
+              ><span data-translate="wind-metric"> m/s</span>
+            </p>
+            <p>
+              <span data-translate="humidity">Humidity</span>
+              <span class="current-humidity"></span> %
+            </p>
+            <p>
+              <span data-translate="pressure">Pressure</span>
+              <span class="current-pressure"></span>
+            </p>
+            <p>
+              <span data-translate="sunrise">Sunrise</span>
+              <span class="sunrise"></span>
+            </p>
+            <p>
+              <span data-translate="sunset">Sunset</span>
+              <span class="sunset"></span>
+            </p>
+          </div>
+          <div class="week-forecast"></div>
         </div>
       </section>
+
       <section id="history">
         <div class="container">
-          <h2 class="section-title" data-translate="secondary-title">The History of Kharkiv</h2>
-        <div class="history-block">
-        <h3 class="history-title" data-translate="origini">Origini</h3>
-          <div class="history-description-wrapper">
-          <div class="history-description hidden">
-            <p data-translate="block-1-1">
-              Kharkiv, also known as
-              Kharkov (Russian), is the second-largest
-              city and municipality in Ukraine. Located in the northeast of the
-              country, it is the largest city of the historic Slobozhanshchyna
-              region.
-            </p>
-            <p data-translate="block-1-2">Kharkiv is the administrative centre of Kharkiv Oblast and of
-              the surrounding Kharkiv Raion. The latest population is 1,433,886
-              (2021 est.).
-              <p data-translate="block-1-3">Kharkiv was founded in 1654 as Kharkiv fortress, and
-                after these humble beginnings, it grew to be a major centre of
-                industry, trade and Ukrainian culture in the Russian Empire. At the
-                beginning of the 20th century, the city was predominantly Russian in
-                population, but as industrial expansion drew in further labor from the
-                distressed countryside, and as the Soviet regime moderated previous
-                restrictions on Ukrainian cultural expression, by the eve of World War
-                II the greater part of the population was officially identified as
-                Ukrainian. From December 1919 to January 1934, Kharkiv was the first
-                capital of the Ukrainian Soviet Socialist Republic.</p>
+          <h2 class="section-title" data-translate="secondary-title">
+            The History of Kharkiv
+          </h2>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="origini">Origini</h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-1-1">
+                  Kharkiv, also known as Kharkov (Russian), is the
+                  second-largest city and municipality in Ukraine. Located in
+                  the northeast of the country, it is the largest city of the
+                  historic Slobozhanshchyna region.
+                </p>
+                <p data-translate="block-1-2">
+                  Kharkiv is the administrative centre of Kharkiv Oblast and of
+                  the surrounding Kharkiv Raion. The latest population is
+                  1,433,886 (2021 est.).
+                </p>
+                <p data-translate="block-1-3">
+                  Kharkiv was founded in 1654 as Kharkiv fortress, and after
+                  these humble beginnings, it grew to be a major centre of
+                  industry, trade and Ukrainian culture in the Russian Empire.
+                  At the beginning of the 20th century, the city was
+                  predominantly Russian in population, but as industrial
+                  expansion drew in further labor from the distressed
+                  countryside, and as the Soviet regime moderated previous
+                  restrictions on Ukrainian cultural expression, by the eve of
+                  World War II the greater part of the population was officially
+                  identified as Ukrainian. From December 1919 to January 1934,
+                  Kharkiv was the first capital of the Ukrainian Soviet
+                  Socialist Republic.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="early-history">
+              Early history
+            </h3>
+            <div class="history-description-wrapper"></div>
+            <div class="history-description hidden">
+              <p data-translate="block-2-1">
+                A depiction of the legendary founder "Khariton or Kharko"
+                (postcard of the Russian imperial period, c. 1890s).
+              </p>
+              <p data-translate="block-2-2">
+                The earliest historical references to the region are to Scythian
+                and Sarmatian settlement in the 2nd century BCE. Between the 2nd
+                to the 6th centuries CE there is evidence of Chernyakhov
+                culture, a multiethnic mix of the Geto-Dacian, Sarmatian, and
+                Gothic populations. In the 8th to 10th centuries the Khazar
+                fortress of Verkhneye Saltovo stood about 25 miles (40 km) east
+                of the modern city, near Staryi Saltiv. During the 12th century,
+                the area was part of the territory of the Cumans, and then from
+                the mid 13th century of the Mongol/Tartar Golden Horde.
+              </p>
+              <p data-translate="block-2-3">
+                By the early 17th century, the area was a contested frontier
+                region with renegade populations that had begun to organise in
+                Cossack formations and communities defined by a common
+                determination to resist both Tatar slavery, and
+                Polish-Lithuanian and Russian serfdom. Mid-century, the
+                Khmelnytsky Uprising against the Polish-Lithuanian Commonwealth
+                saw the brief establishment of an independent Cossack Hetmanate.
               </p>
             </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="fortress">
+              Kharkiv Fortress
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-3-1">
+                  In 1654, in the midst of this period of turmoil for Right-bank
+                  Ukraine, groups of people came onto the banks of Lopan and
+                  Kharkiv rivers where they resurrected and fortified an
+                  abandoned settlement. There is a folk etymology that connects
+                  the name of both the settlement and the river to a legendary
+                  cossack founder named Kharko (a diminutive form of the name
+                  Chariton, Ukrainian: Харитон, romanized: Khariton, or
+                  Zechariah, Ukrainian: Захарій, romanized: Zakharii). But the
+                  river's name is attested earlier than the foundation of the
+                  fortress.
+                </p>
+
+                <p data-translate="block-3-2">
+                  The settlement reluctantly accepted the protection and
+                  authority of a Russian voivode from Chuhuiv 40 kilometres (25
+                  mi) to the east. The first appointed voivode from Moscow was
+                  Voyin Selifontov in 1656, who began to build a local ostrog
+                  (fort). In 1658, a new voivode, Ivan Ofrosimov, commanded the
+                  locals to kiss the cross in a demonstration of loyalty to Tsar
+                  Alexis. Led by their otaman Ivan Kryvoshlyk, the refused
+                  refused. However, with the election of a new otaman, Tymish
+                  Lavrynov, relations appear to have been repaired, the Tsar in
+                  Moscow granting the community's request (signed by the deans
+                  of the new Assumption Cathedral and parish churches of
+                  Annunciation and Trinity) to establish a local market.
+                </p>
+
+                <p data-translate="block-3-3">
+                  At that time the population of Kharkiv was just over 1000,
+                  half of whom were local cossacks. Selifontov had brought with
+                  him a Moscow garrison of only 70 soldiers. Defence rested with
+                  a local sloboda cossack regiment under the jurisdiction of the
+                  Razryad Prikaz, a military agency commanded from Belgorod.
+                </p>
+              </div>
             </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="empire">
+              In the Russian Empire
+            </h3>
+            <div class="history-description-wrapper"></div>
+            <div class="history-description hidden">
+              <p data-translate="block-4-1">
+                A 19th-century view of Kharkiv, with the belltower of the
+                Assumption Cathedral dominating the skyline Administrative
+                reforms led to Kharkiv being governed from 1708 from Kyiv, and
+                from 1727 from Belgorod. In 1765 Kharkiv was established as the
+                seat of a separate Sloboda Ukraine Governorate.
+              </p>
+              <p data-translate="block-4-2">
+                Kharkiv University was established in 1805 in the Palace of
+                Governorate-General. Alexander Mikolajewicz Mickiewicz, brother
+                of the Polish national poet Adam Mickiewicz, was a professor of
+                law in the university, while another celebrity, Goethe, searched
+                for instructors for the school. One of its later graduates was
+                In Ivan Franko to whom it awarded a doctorate in Russian
+                linguistics in 1906.
+              </p>
+              <p data-translate="block-4-3">
+                The streets were first cobbled in the city centre in 1830. In
+                1844 the 90 metres (300 ft) tall Alexander Bell Tower,
+                commemorating the victory over Napoleon I in 1812, was built
+                next to the first Assumption Cathedral (later to be transformed
+                by the Soviet authorities into a radio tower). A system of
+                running water was established in 1870.
+              </p>
+              <p data-translate="block-4-4">
+                In the course of the 19th century, although predominantly
+                Russian speaking, Kharkiv became a centre of Ukrainian culture.
+                The first Ukrainian newspaper was published in the city in 1812.
+                Soon after the Crimean War, in 1860–61, a hromada was
+                established in the city, one of a network of secret societies
+                that laid the groundwork for the appearance of a Ukrainian
+                national movement. Its most prominent member was the
+                philosopher, linguist and pan-slavist activist Oleksandr
+                Potebnia. Members of a student hromada in the city included the
+                future national leaders Borys Martos and Dmytro Antonovych, and
+                reputedly were the first to employ the slogan "Glory to
+                Ukraine!" and its response "Glory on all of earth!".
+              </p>
+              <p data-translate="block-4-5">
+                After the February Revolution of 1917, the USDLP was the main
+                party in the first Ukrainian government, the General Secretariat
+                of Ukraine. The Tsentralna Rada (central council) of Ukrainian
+                parties in Kyiv authorised the Secretariat to negoitate national
+                autonomy with the Russian Provisional Government. In the
+                succeeding months, as wartime conditions deteriorated, the USDLP
+                lost support in Kharkiv and elsewhere to the Ukrainian Socialist
+                Revolutionary Party (SR) which organised both in peasant
+                communities and in disaffected military units.
+              </p>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="soviet">
+              The Soviet city
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-5-1">
+                  The Derzhprom building in the late 1920s. In the Russian
+                  Constituent Assembly election held in November 1917, the
+                  Bolsheviks who had seized power in Petrograd and Moscow
+                  received just 10.5 percent of the vote in the Governorate,
+                  compared to 73 percent for a bloc of Russian and Ukrainian
+                  Socialist Revolutionaries. Commanding worker, rather than
+                  peasant, votes, within the city itself the Bolsheviks won a
+                  plurality.
+                </p>
+                <p data-translate="block-5-2">
+                  When in Petrograd Lenin's Council of People's Commissars
+                  disbanded the Constituent Assembly after its first sitting,
+                  the Tsentralna Rada in Kyiv proclaimed the independence of the
+                  Ukrainian People's Republic (UPR) Bolsheviks withdrew from
+                  Tsentralna Rada and formed their own Rada (national council)
+                  in Kharkiv. By February 1918 their forces had captured much of
+                  Ukraine.
+                </p>
+                <p data-translate="block-5-3">
+                  They made Kharkiv the capital of the Donetsk-Krivoy Rog Soviet
+                  Republic. Six weeks later, under the treaty terms agreed with
+                  the Central Powers at Brest-Litovsk, they abandoned the city
+                  and ceded the territory to the German-occupied Ukrainian
+                  State.
+                </p>
+                <p data-translate="block-5-4">
+                  In the 1920s, the Ukrainian SSR promoted the use of the
+                  Ukrainian language, mandating it for all schools. In practice
+                  the share of secondary schools teaching in the Ukrainian
+                  language remained lower than the ethnic Ukrainian share of the
+                  Kharkiv Oblasts population. The Ukrainization policy was
+                  reversed, with the prosecution in Kharkiv in 1930 of the Union
+                  for the Freedom of Ukraine. Hundreds of Ukrainian
+                  intellectuals were arrested and deported.
+                </p>
+                <p data-translate="block-5-5">
+                  In 1932 and '33, the combination of grain seizures and the
+                  forced collectivisation of peasant holdings created famine
+                  conditions, the Holodomor, driving people off the land and
+                  into Kharkiv, and other cities, in search of food. Eye-witness
+                  accounts by westerners—among them those of American Communist
+                  Fred Beal employed in the Kharkiv Tractor Factory —were cited
+                  in the international press but, until the era of Glasnost were
+                  consistently denounced in the Soviet Union as fabrications.
+                </p>
+                <p data-translate="block-5-6">
+                  In 1934 hundreds of Ukrainian writers, intellectuals and
+                  cultural workers were arrested and executed in the attempt to
+                  eradicate all vestiges of Ukrainian nationalism. The purges
+                  continued into 1938. Blind Ukrainian street musicians Kobzars
+                  were also rounded up in Kharkiv and murdered by the NKVD.
+                  Confident in his control over Ukraine, in January 1934 Stalin
+                  had the capital of the Ukrainian SSR moved from Kharkiv to
+                  Kyiv.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="german">
+              German occupation
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-6-1">
+                  During World War II, Kharkiv was the focus of major battles.
+                  The city was captured by Nazi Germany on 24 October 1941. A
+                  disastrous Red Army offensive failed to recover the city in
+                  May 1942. It was retaken (Operation Star) on 16 February 1943,
+                  but lost again to the Germans on 15 March 1943. 23 August 1943
+                  saw a final liberation.
+                </p>
+                <p data-translate="block-6-2">
+                  A memorial to 23 August 1943, the end of German occupation
+                  during World War II On the eve of the occupation, Kharkiv's
+                  prewar population of 700,000 had been doubled by the influx of
+                  refugees. What remained of the pre-war Jewish population of
+                  130,000, were slated by the Germans for "special treatment":
+                  between December 1941 and January 1942, they killed and buried
+                  an estimated 15,000 Jews in a ravine outside of town named
+                  Drobytsky Yar. Over their 22 months occupation they executed a
+                  further 30,000 residents, among them suspected Soviet
+                  partisans and, after a brief period of toleration, Ukrainian
+                  nationalists. 80,000 people died of hunger, cold and disease.
+                  60,000 were forcibly transported to Germany as slave workers
+                  (Ostarbeiter). (Among these was Boris Romanchenko. The 96-year
+                  old survivor of forced labor at the Buchenwald, Peenemünde,
+                  Dora and Bergen Belsen concentration camps was killed when
+                  Russian fire hit his apartment bloc on 18 March 2022).
+                </p>
+                <p data-translate="block-6-3">
+                  By the time of Kharkiv's liberation in August 1943, the
+                  surviving population had been reduced to under 200,000.
+                  Seventy percent of the city had been destroyed.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="post-war">
+              Post-World War II
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-7-1">
+                  Before the occupation, Kharkiv's tank industries had been
+                  evacuated to the Urals with all their equipment, and became
+                  the heart of Red Army's tank programs (particularly, producing
+                  the T-34 tank earlier designed in Kharkiv). These enterprises
+                  returned to Kharkiv after the war, and became central elements
+                  of the post-war Soviet military industrial complex.[61] Houses
+                  and factories were rebuilt, and much of the city's center was
+                  reconstructed in the style of Stalinist Classicism.
+                </p>
+                <p data-translate="block-7-2">
+                  In the Brezhnev-era, Kharkiv was promoted as a "model Soviet
+                  city". Propaganda made much of its “youthfulness”, a
+                  designation broadly used to suggest the relative absence in
+                  the city of "material and spiritual relics" from the
+                  pre-revolutionary era, and its commitment to the new frontiers
+                  of Soviet industry and science. The city's machine-and-weapons
+                  building prowess was attributed to a forward-looking
+                  collaboration between its large-scale industrial enterprises
+                  and new research institutes and laboratories.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="independent">
+              Independent Ukraine
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-8-1">
+                  In the 1 December 1991 Referendum on the Act of Declaration of
+                  Independence, on a turnout of 76 percent 86 percent of the
+                  Kharkiv Oblast approved separate Ukrainian statehood.
+                </p>
+                <p data-translate="block-8-2">
+                  The collapse of the Soviet Union disrupted, but did not sever,
+                  the ties that bound Kharkiv heavy's industries to the
+                  integrated Soviet market and supply chains, and did not
+                  diminish dependency on Russian oil, minerals, and gas. In
+                  Kharkiv and elsewhere in eastern Ukraine, the limited
+                  prospects for securing new economic partners in the West, and
+                  concern for the rights of Russian-speakers in the new national
+                  state, combined to promote the interests of political parties
+                  and candidates emphasising understanding and cooperation with
+                  the Russian Federation. In the new century, these were
+                  represented by the Party of Regions and by the presidential
+                  ambitions of Victor Yanukovych, which in Kharkiv triumphed in
+                  the city council elections of 2006, in the parliamentary
+                  elections of 2007 and in the presidential elections of 2010.
+                </p>
+                <p data-translate="block-8-3">
+                  The Euromaidan protests in the winter of 2013–2014 against
+                  then president Viktor Yanukovych consisted of daily gatherings
+                  of about 200 protestors near the statue of Taras Shevchenko
+                  and were predominantly peaceful. Disappointed at the turnout,
+                  an activist at Kharkiv University suggested that his fellow
+                  students "proved to be as much of an inert, grey and cowed
+                  mass as Kharkiv’s ‘biudzhetniki’ " (those whose income derives
+                  from the state budget, mostly public servants). But
+                  Pro-Yanukovych demonstrations, held near the statue of Lenin
+                  in Freedom Square, were similarly small.
+                </p>
+                <p data-translate="block-8-4">
+                  After the Euromaidan events and Russian actions in the Crimea
+                  and Donbas ruptured relations with Moscow, the Kharkiv region
+                  experienced a sharp fall in output and employment. Once a hub
+                  of cross border trade, Kharkiv was turned into a border
+                  fortress. A reorientation to new international markets,
+                  increased defense contracts (after Kyiv, the region contains
+                  the second-largest umber of military-related enterprises) and
+                  export growth in the economy's services sector helped fuel a
+                  recovery, but people's incomes did not return to pre-2014
+                  levels.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="invasion">
+              Russian invasion 2022
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-9-1">
+                  Main article: Battle of Kharkiv (2022) During the 2022 Russian
+                  invasion of Ukraine, Kharkiv was the site of heavy fighting
+                  between the Ukrainian and Russian forces.[108] On 27 February,
+                  the governor of Kharkiv Oblast Oleh Synyehubov claimed that
+                  Russian troops were repelled from Kharkiv.
+                </p>
+                <p data-translate="block-9-2">
+                  According to a 28 February 2022, report from Agroportal 24h,
+                  the Kharkiv Tractor Plant (KhTZ), in the south east of the
+                  city, was destroyed and “engulfed in fire” by “massive
+                  shelling” from Russian forces. Video purported to record
+                  explosions and fire at the plant on 25 and 27 February 2022.
+                  UNESCO has confirmed that in the first three weeks of
+                  bombardment the city experienced the loss or damage of at
+                  least 27 major historical buildings.
+                </p>
+                <p data-translate="block-9-3">
+                  On 4 March 2022, Human Rights Watch reported that on the
+                  fourth day of the invasion of Ukraine by the Russian
+                  Federation, 28 February 2022, Federation forces used cluster
+                  munitions in the KhTZ , the Moskovskyi and Shevchenkivskyi
+                  districts of the city. The rights group—which noted the
+                  "inherently indiscriminate nature of cluster munitions and
+                  their foreseeable effects on civilians"—based its assessment
+                  on interviews and an analysis of 40 videos and photographs. In
+                  March 2022, during the Battle of Kharkiv, the city was
+                  designated as a Hero City of Ukraine.
+                </p>
+                <p data-translate="block-9-4">
+                  In May 2022, Ukrainian forces began a counter-offensive to
+                  drive Russian forces away from the city and towards the
+                  international border. By 12 May, the United Kingdom Ministry
+                  of Defence reported that Russia had withdrawn units from the
+                  Kharkiv area. Russian artillery and rockets remain within
+                  range of the city, and it continues to suffer shelling and
+                  missile strikes.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="history-block">
+            <h3 class="history-title" data-translate="liberation">
+              Kharkiv liberation
+            </h3>
+            <div class="history-description-wrapper">
+              <div class="history-description hidden">
+                <p data-translate="block-10-1">
+                  On Tuesday, the 13th of September Ukraine consolidated its
+                  control of the Kharkiv region on Tuesday, raising flags on
+                  towns and villages occupied by Russian troops for six months,
+                  and reclaiming areas seized by Moscow on the first day of
+                  Vladimir Putin’s invasion.
+                </p>
+                <p data-translate="block-10-2">
+                  The state border service in Kyiv said it had liberated the
+                  city of Vovchansk, a couple of kilometres from the
+                  international border. Russian soldiers left on Sunday, it
+                  added, after the stunning Ukrainian counter-offensive.
+                </p>
+                <p data-translate="block-10-3">
+                  In the space of a few days Ukraine has pushed the Russians out
+                  from more than 6,000 sq km of territory, including zones in
+                  the south of the country where a separate counter-offensive is
+                  ongoing to recapture the city of Kherson.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="history-block">
-        <h3 class="history-title" data-translate="early-history">Early history</h3>
-          <div class="history-description-wrapper"></div>
-          <div class="history-description hidden">
-        <p data-translate="block-2-1">
-          A depiction of the legendary founder "Khariton or Kharko" (postcard of the Russian imperial period, c. 1890s).</p>
-<p data-translate="block-2-2">The earliest historical references to the region are to Scythian and Sarmatian settlement in the 2nd century BCE. Between the 2nd to the 6th centuries CE there is evidence of Chernyakhov culture, a multiethnic mix of the Geto-Dacian, Sarmatian, and Gothic populations. In the 8th to 10th centuries the Khazar fortress of Verkhneye Saltovo stood about 25 miles (40 km) east of the modern city, near Staryi Saltiv. During the 12th century, the area was part of the territory of the Cumans, and then from the mid 13th century of the Mongol/Tartar Golden Horde.
-</p>
-<p data-translate="block-2-3">
-By the early 17th century, the area was a contested frontier region with renegade populations that had begun to organise in Cossack formations and communities defined by a common determination to resist both Tatar slavery, and Polish-Lithuanian and Russian serfdom. Mid-century, the Khmelnytsky Uprising against the Polish-Lithuanian Commonwealth saw the brief establishment of an independent Cossack Hetmanate.
-        </p>
-        </div>
-        </div>
-        <div class="history-block">
-        <h3 class="history-title" data-translate="fortress">Kharkiv Fortress</h3>
-          <div class="history-description-wrapper">
-          <div class="history-description hidden">
-                 <p data-translate="block-3-1"> In 1654, in the midst of this period of turmoil for Right-bank Ukraine, groups of people came onto the banks of Lopan and Kharkiv rivers where they resurrected and fortified an abandoned settlement. There is a folk etymology that connects the name of both the settlement and the river to a legendary cossack founder named Kharko (a diminutive form of the name Chariton, Ukrainian: Харитон, romanized: Khariton, or Zechariah, Ukrainian: Захарій, romanized: Zakharii). But the river's name is attested earlier than the foundation of the fortress.</p>
-
-<p data-translate="block-3-2">The settlement reluctantly accepted the protection and authority of a Russian voivode from Chuhuiv 40 kilometres (25 mi) to the east. The first appointed voivode from Moscow was Voyin Selifontov in 1656, who began to build a local ostrog (fort). In 1658, a new voivode, Ivan Ofrosimov, commanded the locals to kiss the cross in a demonstration of loyalty to Tsar Alexis. Led by their otaman Ivan Kryvoshlyk, the refused refused. However, with the election of a new otaman, Tymish Lavrynov, relations appear to have been repaired, the Tsar in Moscow granting the community's request (signed by the deans of the new Assumption Cathedral and parish churches of Annunciation and Trinity) to establish a local market.
-  </p>
-
-<p data-translate="block-3-3">At that time the population of Kharkiv was just over 1000, half of whom were local cossacks. Selifontov had brought with him a Moscow garrison of only 70 soldiers. Defence rested with a local sloboda cossack regiment under the jurisdiction of the Razryad Prikaz, a military agency commanded from Belgorod.
-  </p>
-  </div>
-  </div>
-  </div>
-<div class="history-block">
-  <h3 class="history-title" data-translate="empire">In the Russian Empire</h3>
-    <div class="history-description-wrapper"></div>
-    <div class="history-description hidden">
-<p data-translate="block-4-1">A 19th-century view of Kharkiv, with the belltower of the Assumption Cathedral dominating the skyline
-Administrative reforms led to Kharkiv being governed from 1708 from Kyiv, and from 1727 from Belgorod. In 1765 Kharkiv was established as the seat of a separate Sloboda Ukraine Governorate.</p>
-<p data-translate="block-4-2">
-Kharkiv University was established in 1805 in the Palace of Governorate-General. Alexander Mikolajewicz Mickiewicz, brother of the Polish national poet Adam Mickiewicz, was a professor of law in the university, while another celebrity, Goethe, searched for instructors for the school. One of its later graduates was In Ivan Franko to whom it awarded a doctorate in Russian linguistics in 1906.
-</p>
-<p data-translate="block-4-3">
-The streets were first cobbled in the city centre in 1830. In 1844 the 90 metres (300 ft) tall Alexander Bell Tower, commemorating the victory over Napoleon I in 1812, was built next to the first Assumption Cathedral (later to be transformed by the Soviet authorities into a radio tower). A system of running water was established in 1870.
-</p>
-<p data-translate="block-4-4">
-In the course of the 19th century, although predominantly Russian speaking, Kharkiv became a centre of Ukrainian culture. The first Ukrainian newspaper was published in the city in 1812. Soon after the Crimean War, in 1860–61, a hromada was established in the city, one of a network of secret societies that laid the groundwork for the appearance of a Ukrainian national movement. Its most prominent member was the philosopher, linguist and pan-slavist activist Oleksandr Potebnia. Members of a student hromada in the city included the future national leaders Borys Martos and Dmytro Antonovych, and reputedly were the first to employ the slogan "Glory to Ukraine!" and its response "Glory on all of earth!".
-</p>
-<p data-translate="block-4-5">
-After the February Revolution of 1917, the USDLP was the main party in the first Ukrainian government, the General Secretariat of Ukraine. The Tsentralna Rada (central council) of Ukrainian parties in Kyiv authorised the Secretariat to negoitate national autonomy with the Russian Provisional Government. In the succeeding months, as wartime conditions deteriorated, the USDLP lost support in Kharkiv and elsewhere to the Ukrainian Socialist Revolutionary Party (SR) which organised both in peasant communities and in disaffected military units.
-</p>
-</div>
-</div>
-       <div class="history-block">
-        <h3 class="history-title" data-translate="soviet"> The Soviet city</h3>
-          <div class="history-description-wrapper">
-          <div class="history-description hidden">
-  <p data-translate="block-5-1">
-The Derzhprom building in the late 1920s.
-In the Russian Constituent Assembly election held in November 1917, the Bolsheviks who had seized power in Petrograd and Moscow received just 10.5 percent of the vote in the Governorate, compared to 73 percent for a bloc of Russian and Ukrainian Socialist Revolutionaries. Commanding worker, rather than peasant, votes, within the city itself the Bolsheviks won a plurality.
-</p>
-<p data-translate="block-5-2">
-When in Petrograd Lenin's Council of People's Commissars disbanded the Constituent Assembly after its first sitting, the Tsentralna Rada in Kyiv proclaimed the independence of the Ukrainian People's Republic (UPR) Bolsheviks withdrew from Tsentralna Rada and formed their own Rada (national council) in Kharkiv. By February 1918 their forces had captured much of Ukraine.
-</p>
-<p data-translate="block-5-3">
-They made Kharkiv the capital of the Donetsk-Krivoy Rog Soviet Republic. Six weeks later, under the treaty terms agreed with the Central Powers at Brest-Litovsk, they abandoned the city and ceded the territory to the German-occupied Ukrainian State.
-</p>
-<p data-translate="block-5-4">In the 1920s, the Ukrainian SSR promoted the use of the Ukrainian language, mandating it for all schools. In practice the share of secondary schools teaching in the Ukrainian language remained lower than the ethnic Ukrainian share of the Kharkiv Oblasts population. The Ukrainization policy was reversed, with the prosecution in Kharkiv in 1930 of the Union for the Freedom of Ukraine. Hundreds of Ukrainian intellectuals were arrested and deported.
-</p>
-<p data-translate="block-5-5">
-In 1932 and '33, the combination of grain seizures and the forced collectivisation of peasant holdings created famine conditions, the Holodomor, driving people off the land and into Kharkiv, and other cities, in search of food. Eye-witness accounts by westerners—among them those of American Communist Fred Beal employed in the Kharkiv Tractor Factory —were cited in the international press but, until the era of Glasnost were consistently denounced in the Soviet Union as fabrications.
-</p>
-<p data-translate="block-5-6">
-In 1934 hundreds of Ukrainian writers, intellectuals and cultural workers were arrested and executed in the attempt to eradicate all vestiges of Ukrainian nationalism. The purges continued into 1938. Blind Ukrainian street musicians Kobzars were also rounded up in Kharkiv and murdered by the NKVD. Confident in his control over Ukraine, in January 1934 Stalin had the capital of the Ukrainian SSR moved from Kharkiv to Kyiv.
-</p>
-</div>
-</div>
-       </div>
-       <div class="history-block">
-       <h3 class="history-title" data-translate="german">German occupation</h3>
-        <div class="history-description-wrapper">
-        <div class="history-description hidden">
-       <p data-translate="block-6-1">
-During World War II, Kharkiv was the focus of major battles. The city was captured by Nazi Germany on 24 October 1941. A disastrous Red Army offensive failed to recover the city in May 1942. It was retaken (Operation Star) on 16 February 1943, but lost again to the Germans on 15 March 1943. 23 August 1943 saw a final liberation.
-</p>
-<p data-translate="block-6-2">
-A memorial to 23 August 1943, the end of German occupation during World War II
-On the eve of the occupation, Kharkiv's prewar population of 700,000 had been doubled by the influx of refugees. What remained of the pre-war Jewish population of 130,000, were slated by the Germans for "special treatment": between December 1941 and January 1942, they killed and buried an estimated 15,000 Jews in a ravine outside of town named Drobytsky Yar. Over their 22 months occupation they executed a further 30,000 residents, among them suspected Soviet partisans and, after a brief period of toleration, Ukrainian nationalists. 80,000 people died of hunger, cold and disease. 60,000 were forcibly transported to Germany as slave workers (Ostarbeiter). (Among these was Boris Romanchenko. The 96-year old survivor of forced labor at the Buchenwald, Peenemünde, Dora and Bergen Belsen concentration camps was killed when Russian fire hit his apartment bloc on 18 March 2022).
-</p>
-<p data-translate="block-6-3">
-By the time of Kharkiv's liberation in August 1943, the surviving population had been reduced to under 200,000. Seventy percent of the city had been destroyed.
-</p>
-</div>
-</div>
-       </div>
-       <div class="history-block">
-        <h3 class="history-title" data-translate="post-war">Post-World War II</h3>
-        <div class="history-description-wrapper">
-        <div class="history-description hidden">
-   <p data-translate="block-7-1">
-Before the occupation, Kharkiv's tank industries had been evacuated to the Urals with all their equipment, and became the heart of Red Army's tank programs (particularly, producing the T-34 tank earlier designed in Kharkiv). These enterprises returned to Kharkiv after the war, and became central elements of the post-war Soviet military industrial complex.[61] Houses and factories were rebuilt, and much of the city's center was reconstructed in the style of Stalinist Classicism.
-</p>
-<p data-translate="block-7-2">
-In the Brezhnev-era, Kharkiv was promoted as a "model Soviet city". Propaganda made much of its “youthfulness”, a designation broadly used to suggest the relative absence in the city of "material and spiritual relics" from the pre-revolutionary era, and its commitment to the new frontiers of Soviet industry and science. The city's machine-and-weapons building prowess was attributed to a forward-looking collaboration between its large-scale industrial enterprises and new research institutes and laboratories.
-</p>
-</div>
-</div>
-       </div>
-<div class="history-block">
-  <h3 class="history-title" data-translate="independent">Independent Ukraine</h3>
-  <div class="history-description-wrapper">
-  <div class="history-description hidden">
-  <p data-translate="block-8-1">
-In the 1 December 1991 Referendum on the Act of Declaration of Independence, on a turnout of 76 percent 86 percent of the Kharkiv Oblast approved separate Ukrainian statehood.
-</p>
-<p data-translate="block-8-2">
-The collapse of the Soviet Union disrupted, but did not sever, the ties that bound Kharkiv heavy's industries to the integrated Soviet market and supply chains, and did not diminish dependency on Russian oil, minerals, and gas. In Kharkiv and elsewhere in eastern Ukraine, the limited prospects for securing new economic partners in the West, and concern for the rights of Russian-speakers in the new national state, combined to promote the interests of political parties and candidates emphasising understanding and cooperation with the Russian Federation. In the new century, these were represented by the Party of Regions and by the presidential ambitions of Victor Yanukovych, which in Kharkiv triumphed in the city council elections of 2006, in the parliamentary elections of 2007 and in the presidential elections of 2010.
-</p>
-<p data-translate="block-8-3">
-  The Euromaidan protests in the winter of 2013–2014 against then president Viktor Yanukovych consisted of daily gatherings of about 200 protestors near the statue of Taras Shevchenko and were predominantly peaceful. Disappointed at the turnout, an activist at Kharkiv University suggested that his fellow students "proved to be as much of an inert, grey and cowed mass as Kharkiv’s ‘biudzhetniki’ " (those whose income derives from the state budget, mostly public servants). But Pro-Yanukovych demonstrations, held near the statue of Lenin in Freedom Square, were similarly small.
-</p>
-<p data-translate="block-8-4">
-  After the Euromaidan events and Russian actions in the Crimea and Donbas ruptured relations with Moscow, the Kharkiv region experienced a sharp fall in output and employment. Once a hub of cross border trade, Kharkiv was turned into a border fortress. A reorientation to new international markets, increased defense contracts (after Kyiv, the region contains the second-largest umber of military-related enterprises) and export growth in the economy's services sector helped fuel a recovery, but people's incomes did not return to pre-2014 levels.
-</p>
-</div>
-</div>
-</div>
-<div class="history-block">
-  <h3 class="history-title" data-translate="invasion">Russian invasion 2022</h3>
-  <div class="history-description-wrapper">
-  <div class="history-description hidden">
-  <p data-translate="block-9-1">
-Main article: Battle of Kharkiv (2022)
-During the 2022 Russian invasion of Ukraine, Kharkiv was the site of heavy fighting between the Ukrainian and Russian forces.[108] On 27 February, the governor of Kharkiv Oblast Oleh Synyehubov claimed that Russian troops were repelled from Kharkiv.
-</p>
-<p data-translate="block-9-2">
-According to a 28 February 2022, report from Agroportal 24h, the Kharkiv Tractor Plant (KhTZ), in the south east of the city, was destroyed and “engulfed in fire” by “massive shelling” from Russian forces. Video purported to record explosions and fire at the plant on 25 and 27 February 2022. UNESCO has confirmed that in the first three weeks of bombardment the city experienced the loss or damage of at least 27 major historical buildings.
-</p>
-<p data-translate="block-9-3">
-On 4 March 2022, Human Rights Watch reported that on the fourth day of the invasion of Ukraine by the Russian Federation, 28 February 2022, Federation forces used cluster munitions in the KhTZ , the Moskovskyi and Shevchenkivskyi districts of the city. The rights group—which noted the "inherently indiscriminate nature of cluster munitions and their foreseeable effects on civilians"—based its assessment on interviews and an analysis of 40 videos and photographs. In March 2022, during the Battle of Kharkiv, the city was designated as a Hero City of Ukraine.
-</p>
-<p data-translate="block-9-4">
-In May 2022, Ukrainian forces began a counter-offensive to drive Russian forces away from the city and towards the international border. By 12 May, the United Kingdom Ministry of Defence reported that Russia had withdrawn units from the Kharkiv area. Russian artillery and rockets remain within range of the city, and it continues to suffer shelling and missile strikes.
-</p>
-</div>
-</div>
-</div>
-<div class="history-block">
-  <h3 class="history-title" data-translate="liberation">Kharkiv liberation</h3>
-  <div class="history-description-wrapper">
-  <div class="history-description hidden">
-<p data-translate="block-10-1">
-  On Tuesday, the 13th of September Ukraine consolidated its control of the Kharkiv region on Tuesday, raising flags on towns and villages occupied by Russian troops for six months, and reclaiming areas seized by Moscow on the first day of Vladimir Putin’s invasion.
-</p>
-<p data-translate="block-10-2">
-The state border service in Kyiv said it had liberated the city of Vovchansk, a couple of kilometres from the international border. Russian soldiers left on Sunday, it added, after the stunning Ukrainian counter-offensive.
-</p>
-<p data-translate="block-10-3">
-In the space of a few days Ukraine has pushed the Russians out from more than 6,000 sq km of territory, including zones in the south of the country where a separate counter-offensive is ongoing to recapture the city of Kherson.
-</p>
-</div>
-</div>
-</div>
-       </div>
-       <aside>
-
-       </aside>
+        <aside></aside>
       </section>
-
-
-
-
-
-
-
 
       <section id="about">
         <div class="container">
-          <h2 class="section-title" data-translate="places">Places of Interest</h2>
-        <div class="secondary-slider-wrapper">
-           <div class="sidebar">
-        <div>
-          <h4 data-translate="freedom-square">The Freedom Square in Kharkiv</h4>
-          <p data-translate="freedom-square-description">
-The city’s principal and rather incredible landmark is Freedom Square (Ploshcha Svobody), one of the largest squares in the world with an area of over 12 hectares, which holds solemn military parades as well as concerts and cultural and political events. Surrounding the square are numerous parks, bustling streets, scenic fountains and various picturesque open-air coffee bars.</p>
-        </div>
-        <div>
-          <h4 data-translate="zoo">Kharkiv Zoo</h4>
-          <p data-translate="zoo-description">The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkiv Zoo. </p>
-        </div>
-        <div>
-          <h4 data-translate="strelka">Strelka Garden Square</h4>
-          <p data-translate="strelka-description">
-Strelka garden square is located in the confluence of the Kharkiv and Lopan rivers, from where, according to legend, the city of Kharkov began its origin.
-Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.</p>
-        </div>
-        <div>
-          <h4 data-translate="assumption-cathedral">Assumption of Dormition Cathedral</h4>
-          <p data-translate="assumption-cathedral-description">
-Situated on a hill above the banks of the River Lopan, this is the oldest Orthodox church in Ukraine. The very high bell tower was built in honour of Alexander I to celebrate its victory against the army of Napoleon Bonaparte. The inside is very ornate, extremely large and very striking - a typical example of Orthodox places of worship.</p>
-        </div>
-        <div>
-          <h4 data-translate="annunciation-cathedral">Annuciation Cathedral</h4>
-          <p data-translate="annunciation-cathedral-description">
-A beautiful neo-Byzantine style with five domes and a characteristic bell tower of 80 metres. Superb frescoes can be found inside this vast building, which holds up to 4,000 people. It was built between 1889 and 1901 by the local architect Mikhail Lovtsov. </p>
-        </div>
-        <div>
-          <h4 data-translate="shevchenko-park">Shevchenko Park</h4>
-          <p data-translate="shevchenko-park-description">
-            Shevchenko park is the central area of Kharkiv and holds many attractions, full of green and vast areas of flowers. The park has huge old trees planted over 500 years ago and they are protect by wrought iron fences with the date they were planted. It’s large with several fountains, at least one huge children play area with the best quality slides, climbing area. Nearby you can find restaurants, zoo and Dolphinaurium.
-          </p>
-        </div>
-        <div>
-          <h4 data-translate="metalist">Metalist Sports Complex</h4>
-          <p data-translate="metalist-description">Metalist which includes the Metalist Stadium (Ukrainian: Стадіон "Металіст"), is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.</p>
-        </div>
-        <div>
-          <h4 data-translate="gorky-park">Gorky Park</h4>
-          <p data-translate="gorky-park-description">
-Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite place for families. The Park has 9 amusement areas for all, which range from extreme sport to kids’ games, a Medieval area and French park, as well as a cable car and the largest Ferris Wheel in Ukraine.</p>
-        </div>
-        <div>
-          <h4 data-translate="theatre">Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko</h4>
-          <p data-translate="theatre-description">It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.</p>
-        </div>
-        <div>
-          <h4 data-translate="university">Kharkiv University or Karazin University</h4>
-          <p data-translate="university-description">Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.</p>
-        </div>
-        <div>
-          <h4 data-translate="mirror-stream">Mirror Stream</h4>
-          <p data-translate="mirror-stream-description">The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.</p>
-        </div>
-      </div>
-      <div class="main-slide">
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/1.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/2.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/3.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/4.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/5.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/6.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/7.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/8.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/9.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/10.jpg?raw=true');
-          "
-        ></div>
-        <div
-          style="
-            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/11.jpg?raw=true');
-          "
-        ></div>
-      </div>
-      <div class="controls">
-        <button class="down-button">&uarr;</button>
-        <button class="up-button">&darr;</button>
-      </div>
-
-        </div>
+          <h2 class="section-title" data-translate="places">
+            Places of Interest
+          </h2>
+          <div class="secondary-slider-wrapper">
+            <div class="sidebar">
+              <div>
+                <h4 data-translate="freedom-square">
+                  The Freedom Square in Kharkiv
+                </h4>
+                <p data-translate="freedom-square-description">
+                  The city’s principal and rather incredible landmark is Freedom
+                  Square (Ploshcha Svobody), one of the largest squares in the
+                  world with an area of over 12 hectares, which holds solemn
+                  military parades as well as concerts and cultural and
+                  political events. Surrounding the square are numerous parks,
+                  bustling streets, scenic fountains and various picturesque
+                  open-air coffee bars.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="zoo">Kharkiv Zoo</h4>
+                <p data-translate="zoo-description">
+                  The Kharkiv Zoo is the state zoological park in Kharkov.
+                  Kharkov Zoo is the oldest zoo in Ukraine, it was founded in
+                  1896. It is located in the heart of the city next to the Park
+                  Shevchenko. The Zoo occupies the territory of 22 hectares,
+                  where 6810 animals of 385 species found their home. Among them
+                  103 species are considered as rare and are under protection.
+                  Many of them breed well in the homely setting of Kharkiv Zoo.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="strelka">Strelka Garden Square</h4>
+                <p data-translate="strelka-description">
+                  Strelka garden square is located in the confluence of the
+                  Kharkiv and Lopan rivers, from where, according to legend, the
+                  city of Kharkov began its origin. Strelka garden square is one
+                  of the most popular holiday destinations among Kharkiv
+                  inhabitants.There are numerous trees that create a pleasant
+                  shade and fence off the noise of a big city.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="assumption-cathedral">
+                  Assumption of Dormition Cathedral
+                </h4>
+                <p data-translate="assumption-cathedral-description">
+                  Situated on a hill above the banks of the River Lopan, this is
+                  the oldest Orthodox church in Ukraine. The very high bell
+                  tower was built in honour of Alexander I to celebrate its
+                  victory against the army of Napoleon Bonaparte. The inside is
+                  very ornate, extremely large and very striking - a typical
+                  example of Orthodox places of worship.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="annunciation-cathedral">
+                  Annuciation Cathedral
+                </h4>
+                <p data-translate="annunciation-cathedral-description">
+                  A beautiful neo-Byzantine style with five domes and a
+                  characteristic bell tower of 80 metres. Superb frescoes can be
+                  found inside this vast building, which holds up to 4,000
+                  people. It was built between 1889 and 1901 by the local
+                  architect Mikhail Lovtsov.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="shevchenko-park">Shevchenko Park</h4>
+                <p data-translate="shevchenko-park-description">
+                  Shevchenko park is the central area of Kharkiv and holds many
+                  attractions, full of green and vast areas of flowers. The park
+                  has huge old trees planted over 500 years ago and they are
+                  protect by wrought iron fences with the date they were
+                  planted. It’s large with several fountains, at least one huge
+                  children play area with the best quality slides, climbing
+                  area. Nearby you can find restaurants, zoo and Dolphinaurium.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="metalist">Metalist Sports Complex</h4>
+                <p data-translate="metalist-description">
+                  Metalist which includes the Metalist Stadium (Ukrainian:
+                  Стадіон "Металіст"), is a multi-use stadium in Kharkiv,
+                  Ukraine. It is used chiefly for football matches and is the
+                  home stadium of FC Metalist 1925 Kharkiv. The stadium, which
+                  was a venue for Euro 2012, currently seats 40,003 spectators.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="gorky-park">Gorky Park</h4>
+                <p data-translate="gorky-park-description">
+                  Don’t miss a visit to Gorky Central Park of Culture and
+                  Leisure, a favourite place for families. The Park has 9
+                  amusement areas for all, which range from extreme sport to
+                  kids’ games, a Medieval area and French park, as well as a
+                  cable car and the largest Ferris Wheel in Ukraine.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="theatre">
+                  Kharkiv State Academic Opera and Ballet Theatre named after
+                  M.Lysenko
+                </h4>
+                <p data-translate="theatre-description">
+                  It's the first academic theatre in Ukraine. This one of the
+                  leading Ukrainian theatres was opened in 1925. In 2007 in
+                  front of the theatre were constructed beautiful fountains
+                  which quickly became very popular. The repertoire includes
+                  around 50 operas and ballets, the majority of which are
+                  Ukrainian and Russian but there are also Italian ones.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="university">
+                  Kharkiv University or Karazin University
+                </h4>
+                <p data-translate="university-description">
+                  Karazin Kharkiv National University (Ukrainian: Харківський
+                  національний університет імені В. Н. Каразіна), is one of the
+                  major universities in Ukraine, and earlier in the Russian
+                  Empire and Soviet Union. It was founded in 1804 through the
+                  efforts of Vasily Karazin becoming the second oldest
+                  university in modern-day Ukraine.
+                </p>
+              </div>
+              <div>
+                <h4 data-translate="mirror-stream">Mirror Stream</h4>
+                <p data-translate="mirror-stream-description">
+                  The Mirror Stream is a fountain in Kharkiv, Ukraine. The
+                  natural fountain was discovered in 1947.The fountain is near
+                  the Kharkiv Philharmonic. It was built in 1947. It remains one
+                  of the most remarkable architectural monuments in Kharkiv and,
+                  due to that, has been listed in UNESCO's Encyclopedia.
+                </p>
+              </div>
+            </div>
+            <div class="main-slide">
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/1.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/2.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/3.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/4.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/5.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/6.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/7.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/8.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/9.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/10.jpg?raw=true');
+                "
+              ></div>
+              <div
+                style="
+                  background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/11.jpg?raw=true');
+                "
+              ></div>
+            </div>
+            <div class="controls">
+              <button class="down-button">&uarr;</button>
+              <button class="up-button">&darr;</button>
+            </div>
+          </div>
         </div>
       </section>
-      </div>
     </main>
     <footer class="footer">
       <div class="container">
         <ul class="creators-links">
           <li class="creators-item">
-            <span data-translate="designed">Designed by </span><a href="" class="creators-link" target="_blank"> <span data-translate="designer">Nataly Visitskaya</span></a>
+            <span data-translate="designed">Designed by </span
+            ><a href="" class="creators-link" target="_blank">
+              <span data-translate="designer">Nataly Visitskaya</span></a
+            >
           </li>
           <li class="creators-item">
-            <a href="" class="creators-link" target="_blank"><span data-translate="source-code">Open source code by</span></a> <a href="https://nataliitaly.github.io/CV-web-developer-Krylova/" class="creators-link" target="_blank"><span data-translate="developer">Nataliya Krylova</span></a>
+            <a href="" class="creators-link" target="_blank"
+              ><span data-translate="source-code">Open source code by</span></a
+            >
+            <a
+              href="https://nataliitaly.github.io/CV-web-developer-Krylova/"
+              class="creators-link"
+              target="_blank"
+              ><span data-translate="developer">Nataliya Krylova</span></a
+            >
           </li>
         </ul>
       </div>
     </footer>
 
     <script>
-
       /*---------------------------set first screen background----------------------*/
 
-const firstScreenSection = document.querySelector(".first-screen");
-let count = 1;
-window.addEventListener("DOMContentLoaded", setSliderLoop);
+      const firstScreenSection = document.querySelector(".first-screen");
+      let count = 1;
 
-function setSliderLoop() {
-  //setTimeout(setSliderLoop(), 3500);
-  count++;
-  if (count > 22) {
-    count = 1;
-  }
-  console.log(count);
-  firstScreenSection.style.backgroundImage = `url("https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true")`;
-}
+      function setBackground() {
+        const img = new Image();
+        img.src = `https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true`;
+        img.onload = () => {
+          firstScreenSection.style.backgroundImage = `url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true')`;
+        };
+      }
+      setBackground();
 
-setSliderLoop();
+      function setSliderLoop() {
+        setTimeout(setSliderLoop, 1500);
+        count++;
+        if (count >= 22) {
+          count = 1;
+        }
+        setBackground();
+      }
 
-/*--------------------vertical slider------------------------*/
+      setSliderLoop();
 
-const upBtn = document.querySelector(".up-button");
-const downBtn = document.querySelector(".down-button");
-const sidebar = document.querySelector(".sidebar");
-const mainSlide = document.querySelector(".main-slide");
-const slideCount = mainSlide.querySelectorAll("div").length;
-const container = document.querySelector(".container");
-const body = document.querySelector("body");
-let activeSlideIndex = 0;
+      /*--------------------vertical slider------------------------*/
 
-sidebar.style.top = `-${(slideCount - 1) * 400}px`;
-if (body.offsetWidth <= 440) {
-  sidebar.style.top = "";
-  sidebar.style.left = `-${(slideCount - 1) * 400}px`;
-}
-window.addEventListener("resize", () => {});
+      const upBtn = document.querySelector(".up-button");
+      const downBtn = document.querySelector(".down-button");
+      const sidebar = document.querySelector(".sidebar");
+      const mainSlide = document.querySelector(".main-slide");
+      const slideCount = mainSlide.querySelectorAll("div").length;
+      const container = document.querySelector(".container");
+      const body = document.querySelector("body");
+      let activeSlideIndex = 0;
 
-upBtn.addEventListener("click", () => {
-  changeSlide("up");
-});
+      sidebar.style.top = `-${(slideCount - 1) * 400}px`;
+      if (body.offsetWidth <= 440) {
+        sidebar.style.top = "";
+        sidebar.style.left = `-${(slideCount - 1) * 400}px`;
+      }
+      window.addEventListener("resize", () => {});
 
-downBtn.addEventListener("click", () => {
-  changeSlide("down");
-});
+      upBtn.addEventListener("click", () => {
+        changeSlide("up");
+      });
 
-function changeSlide(direction) {
-  if (direction === "up") {
-    activeSlideIndex++;
-    console.log(activeSlideIndex);
-    if (activeSlideIndex >= slideCount) {
-      activeSlideIndex = 0;
-    }
-  } else {
-    activeSlideIndex--;
-    if (activeSlideIndex <= 0) {
-      activeSlideIndex = slideCount - 1;
-    }
-  }
+      downBtn.addEventListener("click", () => {
+        changeSlide("down");
+      });
 
-  const height = container.clientHeight;
-  const width = container.clientWidth;
+      function changeSlide(direction) {
+        if (direction === "up") {
+          activeSlideIndex++;
+          console.log(activeSlideIndex);
+          if (activeSlideIndex >= slideCount) {
+            activeSlideIndex = 0;
+          }
+        } else {
+          activeSlideIndex--;
+          if (activeSlideIndex <= 0) {
+            activeSlideIndex = slideCount - 1;
+          }
+        }
 
-  if (body.offsetWidth > 440) {
-    mainSlide.style.transform = `translateY(-${activeSlideIndex * 400}px)`;
-    sidebar.style.transform = `translateY(${activeSlideIndex * 400}px)`;
-  } else if (body.offsetWidth <= 440) {
-    mainSlide.style.transform = `translateX(-${activeSlideIndex * width}px)`;
-    sidebar.style.transform = `translateX(${activeSlideIndex * width}px)`;
-  }
-}
+        const height = container.clientHeight;
+        const width = container.clientWidth;
 
-document.addEventListener("keydown", function (event) {
-  if (body.offsetWidth > 440) {
-    if (event.key === "ArrowUp") {
-      changeSlide("up");
-    } else if (event.key === "ArrowDown") {
-      changeSlide("down");
-    }
-  } else if (body.offsetWidth <= 440) {
-    if (event.key === "ArrowLeft") {
-      changeSlide("up");
-    } else if (event.key === "ArrowRight") {
-      changeSlide("down");
-    }
-  }
-});
+        if (body.offsetWidth > 440) {
+          mainSlide.style.transform = `translateY(-${
+            activeSlideIndex * 400
+          }px)`;
+          sidebar.style.transform = `translateY(${activeSlideIndex * 400}px)`;
+        } else if (body.offsetWidth <= 440) {
+          mainSlide.style.transform = `translateX(-${
+            activeSlideIndex * width
+          }px)`;
+          sidebar.style.transform = `translateX(${activeSlideIndex * width}px)`;
+        }
+      }
 
+      document.addEventListener("keydown", function (event) {
+        if (body.offsetWidth > 440) {
+          if (event.key === "ArrowUp") {
+            changeSlide("up");
+          } else if (event.key === "ArrowDown") {
+            changeSlide("down");
+          }
+        } else if (body.offsetWidth <= 440) {
+          if (event.key === "ArrowLeft") {
+            changeSlide("up");
+          } else if (event.key === "ArrowRight") {
+            changeSlide("down");
+          }
+        }
+      });
 
-const DATE = document.querySelector(".date");
-const TIME = document.querySelector(".time");
-const currentTemperature = document.querySelector(".current-temperature");
-const currentFeelTemperature = document.querySelector(
-  ".current-feel-temperature"
-);
-const currentWeatherDescription = document.querySelector(
-  ".weather-description"
-);
-const weekForecast = document.querySelector(".week-forecast");
-const currentWind = document.querySelector(".current-wind");
-const currentHumidity = document.querySelector(".current-humidity");
-const currentPressure = document.querySelector(".current-pressure");
-const currentSunrise = document.querySelector(".sunrise");
-const currentSunset = document.querySelector(".sunset");
-const weatherIcon = document.querySelector(".weather-icon");
-const historyTitles = document.querySelectorAll(".history-title");
-const historyDescriptions = document.querySelectorAll(".history-description");
+      const DATE = document.querySelector(".date");
+      const TIME = document.querySelector(".time");
+      const currentTemperature = document.querySelector(".current-temperature");
+      const currentFeelTemperature = document.querySelector(
+        ".current-feel-temperature"
+      );
+      const currentWeatherDescription = document.querySelector(
+        ".weather-description"
+      );
+      const weekForecast = document.querySelector(".week-forecast");
+      const currentWind = document.querySelector(".current-wind");
+      const currentHumidity = document.querySelector(".current-humidity");
+      const currentPressure = document.querySelector(".current-pressure");
+      const currentSunrise = document.querySelector(".sunrise");
+      const currentSunset = document.querySelector(".sunset");
+      const weatherIcon = document.querySelector(".weather-icon");
+      const historyTitles = document.querySelectorAll(".history-title");
+      const historyDescriptions = document.querySelectorAll(
+        ".history-description"
+      );
 
-let apiKey = "5c08670149a0b1a4dc7a372a3d5e5333";
-let units = "metric";
+      let apiKey = "5c08670149a0b1a4dc7a372a3d5e5333";
+      let units = "metric";
 
-/*-----------------------------set date and time---------------------------*/
+      /*-----------------------------set date and time---------------------------*/
 
-const weekDays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const weekDaysUa = [
-  "Неділя",
-  "Понеділок",
-  "Вівторок",
-  "Середа",
-  "Четвер",
-  "П'ятниця",
-  "Субота",
-];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-const monthsUa = [
-  "Січень",
-  "Лютий",
-  "Березень",
-  "Квітень",
-  "Травень",
-  "Червень",
-  "Липень",
-  "Серпень",
-  "Вересень",
-  "Жовтень",
-  "Листопад",
-  "Грудень",
-];
+      const weekDays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const weekDaysUa = [
+        "Неділя",
+        "Понеділок",
+        "Вівторок",
+        "Середа",
+        "Четвер",
+        "П'ятниця",
+        "Субота",
+      ];
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const monthsUa = [
+        "Січень",
+        "Лютий",
+        "Березень",
+        "Квітень",
+        "Травень",
+        "Червень",
+        "Липень",
+        "Серпень",
+        "Вересень",
+        "Жовтень",
+        "Листопад",
+        "Грудень",
+      ];
 
-let currentLanguageBtn = document.querySelector(".current-language");
+      let currentLanguageBtn = document.querySelector(".current-language");
 
-function setZero(num) {
-  return num >= 9 ? num : "0" + num;
-}
+      function setZero(num) {
+        return num >= 9 ? num : "0" + num;
+      }
 
-function showTime() {
-  const now = new Date();
-  const hours = setZero(now.getHours());
-  const minutes = setZero(now.getMinutes());
-  const seconds = setZero(now.getSeconds());
-  const date = now.getDate();
-  const year = now.getFullYear();
-  let day;
-  let month;
-  let currentLan = document.querySelector(".current-language");
-  if (currentLan.dataset === "ua") console.log("?");
-  day = weekDays[now.getDay()];
-  month = months[now.getMonth()];
+      function showTime() {
+        const now = new Date();
+        const hours = setZero(now.getHours());
+        const minutes = setZero(now.getMinutes());
+        const seconds = setZero(now.getSeconds());
+        const date = now.getDate();
+        const year = now.getFullYear();
+        let day;
+        let month;
+        let currentLan = document.querySelector(".current-language");
+        if (currentLan.dataset === "ua") console.log("?");
+        day = weekDays[now.getDay()];
+        month = months[now.getMonth()];
 
-  DATE.innerHTML = `${day}, <br> ${month} ${date}, ${year}`;
-  TIME.textContent = `${hours}.${minutes}.${seconds}`;
+        DATE.innerHTML = `${day}, <br> ${month} ${date}, ${year}`;
+        TIME.textContent = `${hours}.${minutes}.${seconds}`;
 
-  setTimeout(showTime, 1000);
-}
-showTime();
+        setTimeout(showTime, 1000);
+      }
+      showTime();
 
-/*-------------------------set weather-------------------------*/
+      /*-------------------------set weather-------------------------*/
 
-let lang = "en";
-function getForecast(coordinates) {
-  const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&lang=${lang}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
-}
+      let lang = "en";
+      function getForecast(coordinates) {
+        const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&lang=${lang}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(displayForecast);
+      }
 
-function displayForecast(response) {
-  const forecastArr = response.data.daily;
-  forecastArr.forEach((day, index) => {
-    if (index > 0 && index < 7) {
-      let dayForecast = document.createElement("div");
-      dayForecast.classList.add("day-forecast", "col");
-      let minTempreture = Math.round(day.temp.min);
-      let maxTempreture = Math.round(day.temp.max);
+      function displayForecast(response) {
+        const forecastArr = response.data.daily;
+        forecastArr.forEach((day, index) => {
+          if (index > 0 && index < 7) {
+            let dayForecast = document.createElement("div");
+            dayForecast.classList.add("day-forecast", "col");
+            let minTempreture = Math.round(day.temp.min);
+            let maxTempreture = Math.round(day.temp.max);
 
-      dayForecast.innerHTML = `<div class="week-day-min">${formatDay(
-        day.dt
-      )}</div>
+            dayForecast.innerHTML = `<div class="week-day-min">${formatDay(
+              day.dt
+            )}</div>
             <div class="weather-icon"><img src="http://openweathermap.org/img/wn/${
               day.weather[0].icon
             }@2x.png" alt="${day.weather[0].description}"></div>
@@ -927,338 +1307,361 @@ function displayForecast(response) {
               <span class="temp-min">${minTempreture}°</span>
               <span class="temp-max">${maxTempreture}°</span>
             </div>`;
-      weekForecast.append(dayForecast);
-    }
-  });
-}
+            weekForecast.append(dayForecast);
+          }
+        });
+      }
 
-function formatDay(timeSpamp) {
-  let date = new Date(timeSpamp * 1000);
-  let day = date.getDay();
+      function formatDay(timeSpamp) {
+        let date = new Date(timeSpamp * 1000);
+        let day = date.getDay();
 
-  if (currentLanguageBtn.getAttribute("data-language") === "ua") {
-    return weekDaysUa[day];
-  } else {
-    return weekDays[day];
-  }
-}
+        if (currentLanguageBtn.getAttribute("data-language") === "ua") {
+          return weekDaysUa[day];
+        } else {
+          return weekDays[day];
+        }
+      }
 
-function formatTime(timeSpamp) {
-  let date = new Date(timeSpamp);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  return `${setZero(hours)}:${setZero(minutes)}`;
-}
+      function formatTime(timeSpamp) {
+        let date = new Date(timeSpamp);
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        return `${setZero(hours)}:${setZero(minutes)}`;
+      }
 
-function setCity(cityName) {
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-  axios.get(url).then(showWeather);
-}
+      function setCity(cityName) {
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+        axios.get(url).then(showWeather);
+      }
 
-setCity("Kharkiv");
+      setCity("Kharkiv");
 
-function showWeather(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let weatherDesc = response.data.weather[0].description;
-  let feelTemperature = Math.round(response.data.main.feels_like);
-  let humidity = response.data.main.humidity;
-  let wind = response.data.wind.speed;
-  let sunrise = response.data.sys.sunrise;
-  let sunset = response.data.sys.sunset;
-  currentTemperature.textContent = temperature;
-  currentWeatherDescription.textContent =
-    weatherDesc[0].toUpperCase() + weatherDesc.slice(1);
-  currentFeelTemperature.textContent = feelTemperature;
-  currentHumidity.textContent = humidity;
-  currentWind.textContent = wind;
-  currentSunrise.textContent = formatTime(sunrise);
-  currentSunset.textContent = formatTime(sunset);
-  weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" alt="${response.data.weather[0].description}">`;
-  getForecast(response.data.coord);
-}
+      function showWeather(response) {
+        let temperature = Math.round(response.data.main.temp);
+        let weatherDesc = response.data.weather[0].description;
+        let feelTemperature = Math.round(response.data.main.feels_like);
+        let humidity = response.data.main.humidity;
+        let wind = response.data.wind.speed;
+        let sunrise = response.data.sys.sunrise;
+        let sunset = response.data.sys.sunset;
+        currentTemperature.textContent = temperature;
+        currentWeatherDescription.textContent =
+          weatherDesc[0].toUpperCase() + weatherDesc.slice(1);
+        currentFeelTemperature.textContent = feelTemperature;
+        currentHumidity.textContent = humidity;
+        currentWind.textContent = wind;
+        currentSunrise.textContent = formatTime(sunrise);
+        currentSunset.textContent = formatTime(sunset);
+        weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" alt="${response.data.weather[0].description}">`;
+        getForecast(response.data.coord);
+      }
 
-/*-----------------set functionality to history section----------------*/
+      /*-----------------set functionality to history section----------------*/
 
-for (let i = 0; i < historyTitles.length; i++) {
-  historyTitles[i].addEventListener("click", function () {
-    historyDescriptions[i].classList.toggle("hidden");
-  });
-}
+      for (let i = 0; i < historyTitles.length; i++) {
+        historyTitles[i].addEventListener("click", function () {
+          historyDescriptions[i].classList.toggle("hidden");
+        });
+      }
 
-/*-----------------------------translation-----------------------------*/
+      /*-----------------------------translation-----------------------------*/
 
-const translationObj = {
-  en: {
-    "history-link": "History of Kharkiv",
-    "about-link": "About Kharkiv",
-    title: "From Kharkiv With Love",
-    temperature: "Temperature",
-    "feels-temperature": "Feels like",
-    wind: "Wind speed",
-    "wind-metric": "m/s",
-    humidity: "Humidity",
-    pressure: "Pressure",
-    sunrise: "Sunrise",
-    sunset: "Sunset",
-    "secondary-title": "The History of Kharkiv",
-    origini: "Origini",
-    "block-1-1":
-      "Kharkiv, also known as Kharkov (Russian), is the second-largest city and municipality in Ukraine. Located in the northeast of the country, it is the largest city of the historic Slobozhanshchyna region.",
-    "block-1-2":
-      "Kharkiv is the administrative centre of Kharkiv Oblast and of the surrounding Kharkiv Raion. The latest population is 1,433,886 (2021 est.).",
-    "block-1-3":
-      "Kharkiv was founded in 1654 as Kharkiv fortress, and after these humble beginnings, it grew to be a major centre of industry, trade and Ukrainian culture in the Russian Empire. At the beginning of the 20th century, the city was predominantly Russian in population, but as industrial expansion drew in further labor from the distressed countryside, and as the Soviet regime moderated previous restrictions on Ukrainian cultural expression, by the eve of World War II the greater part of the population was officially identified as Ukrainian. From December 1919 to January 1934, Kharkiv was the first capital of the Ukrainian Soviet Socialist Republic.",
-    "early-history": "Early history",
-    "block-2-1":
-      "A depiction of the legendary founder Khariton or Kharko (postcard of the Russian imperial period, c. 1890s).",
-    "block-2-2":
-      "The earliest historical references to the region are to Scythian and Sarmatian settlement in the 2nd century BCE. Between the 2nd to the 6th centuries CE there is evidence of Chernyakhov culture, a multiethnic mix of the Geto-Dacian, Sarmatian, and Gothic populations. In the 8th to 10th centuries the Khazar fortress of Verkhneye Saltovo stood about 25 miles (40 km) east of the modern city, near Staryi Saltiv. During the 12th century, the area was part of the territory of the Cumans, and then from the mid 13th century of the Mongol/Tartar Golden Horde.",
-    "block-2-3":
-      "By the early 17th century, the area was a contested frontier region with renegade populations that had begun to organise in Cossack formations and communities defined by a common determination to resist both Tatar slavery, and Polish-Lithuanian and Russian serfdom. Mid-century, the Khmelnytsky Uprising against the Polish-Lithuanian Commonwealth saw the brief establishment of an independent Cossack Hetmanate.",
-    fortress: "Kharkiv Fortress",
-    "block-3-1":
-      "In 1654, in the midst of this period of turmoil for Right-bank Ukraine, groups of people came onto the banks of Lopan and Kharkiv rivers where they resurrected and fortified an abandoned settlement. There is a folk etymology that connects the name of both the settlement and the river to a legendary cossack founder named Kharko (a diminutive form of the name Chariton, Ukrainian: Харитон, romanized: Khariton, or Zechariah, Ukrainian: Захарій, romanized: Zakharii). But the river's name is attested earlier than the foundation of the fortress.",
-    "block-3-2":
-      "The settlement reluctantly accepted the protection and authority of a Russian voivode from Chuhuiv 40 kilometres (25 mi) to the east. The first appointed voivode from Moscow was Voyin Selifontov in 1656, who began to build a local ostrog (fort). In 1658, a new voivode, Ivan Ofrosimov, commanded the locals to kiss the cross in a demonstration of loyalty to Tsar Alexis. Led by their otaman Ivan Kryvoshlyk, the refused refused. However, with the election of a new otaman, Tymish Lavrynov, relations appear to have been repaired, the Tsar in Moscow granting the community's request (signed by the deans of the new Assumption Cathedral and parish churches of Annunciation and Trinity) to establish a local market.",
-    "block-3-3":
-      "At that time the population of Kharkiv was just over 1000, half of whom were local cossacks. Selifontov had brought with him a Moscow garrison of only 70 soldiers. Defence rested with a local sloboda cossack regiment under the jurisdiction of the Razryad Prikaz, a military agency commanded from Belgorod.",
-    empire: "In the Russian Empire",
-    "block-4-1":
-      "A 19th-century view of Kharkiv, with the belltower of the Assumption Cathedral dominating the skyline. Administrative reforms led to Kharkiv being governed from 1708 from Kyiv, and from 1727 from Belgorod. In 1765 Kharkiv was established as the seat of a separate Sloboda Ukraine Governorate.",
-    "block-4-2":
-      "Kharkiv University was established in 1805 in the Palace of Governorate-General. Alexander Mikolajewicz Mickiewicz, brother of the Polish national poet Adam Mickiewicz, was a professor of law in the university, while another celebrity, Goethe, searched for instructors for the school. One of its later graduates was In Ivan Franko to whom it awarded a doctorate in Russian linguistics in 1906.",
-    "block-4-3":
-      "The streets were first cobbled in the city centre in 1830. In 1844 the 90 metres (300 ft) tall Alexander Bell Tower, commemorating the victory over Napoleon I in 1812, was built next to the first Assumption Cathedral (later to be transformed by the Soviet authorities into a radio tower). A system of running water was established in 1870.",
-    "block-4-4":
-      "In the course of the 19th century, although predominantly Russian speaking, Kharkiv became a centre of Ukrainian culture. The first Ukrainian newspaper was published in the city in 1812. Soon after the Crimean War, in 1860–61, a hromada was established in the city, one of a network of secret societies that laid the groundwork for the appearance of a Ukrainian national movement. Its most prominent member was the philosopher, linguist and pan-slavist activist Oleksandr Potebnia. Members of a student hromada in the city included the future national leaders Borys Martos and Dmytro Antonovych, and reputedly were the first to employ the slogan 'Glory to Ukraine!' and its response 'Glory on all of earth!'.",
-    "block-4-5":
-      "After the February Revolution of 1917, the USDLP was the main party in the first Ukrainian government, the General Secretariat of Ukraine. The Tsentralna Rada (central council) of Ukrainian parties in Kyiv authorised the Secretariat to negoitate national autonomy with the Russian Provisional Government. In the succeeding months, as wartime conditions deteriorated, the USDLP lost support in Kharkiv and elsewhere to the Ukrainian Socialist Revolutionary Party (SR) which organised both in peasant communities and in disaffected military units.",
-    soviet: "The Soviet city",
-    "block-5-1":
-      "The Derzhprom building in the late 1920s. In the Russian Constituent Assembly election held in November 1917, the Bolsheviks who had seized power in Petrograd and Moscow received just 10.5 percent of the vote in the Governorate, compared to 73 percent for a bloc of Russian and Ukrainian Socialist Revolutionaries. Commanding worker, rather than peasant, votes, within the city itself the Bolsheviks won a plurality.",
-    "block-5-2":
-      "When in Petrograd Lenin's Council of People's Commissars disbanded the Constituent Assembly after its first sitting, the Tsentralna Rada in Kyiv proclaimed the independence of the Ukrainian People's Republic (UPR) Bolsheviks withdrew from Tsentralna Rada and formed their own Rada (national council) in Kharkiv. By February 1918 their forces had captured much of Ukraine.",
-    "block-5-3":
-      "They made Kharkiv the capital of the Donetsk-Krivoy Rog Soviet Republic. Six weeks later, under the treaty terms agreed with the Central Powers at Brest-Litovsk, they abandoned the city and ceded the territory to the German-occupied Ukrainian State.",
-    "block-5-4":
-      "In the 1920s, the Ukrainian SSR promoted the use of the Ukrainian language, mandating it for all schools. In practice the share of secondary schools teaching in the Ukrainian language remained lower than the ethnic Ukrainian share of the Kharkiv Oblasts population. The Ukrainization policy was reversed, with the prosecution in Kharkiv in 1930 of the Union for the Freedom of Ukraine. Hundreds of Ukrainian intellectuals were arrested and deported.",
-    "block-5-5":
-      "In 1932 and '33, the combination of grain seizures and the forced collectivisation of peasant holdings created famine conditions, the Holodomor, driving people off the land and into Kharkiv, and other cities, in search of food. Eye-witness accounts by westerners—among them those of American Communist Fred Beal employed in the Kharkiv Tractor Factory —were cited in the international press but, until the era of Glasnost were consistently denounced in the Soviet Union as fabrications.",
-    "block-5-6":
-      "In 1934 hundreds of Ukrainian writers, intellectuals and cultural workers were arrested and executed in the attempt to eradicate all vestiges of Ukrainian nationalism. The purges continued into 1938. Blind Ukrainian street musicians Kobzars were also rounded up in Kharkiv and murdered by the NKVD. Confident in his control over Ukraine, in January 1934 Stalin had the capital of the Ukrainian SSR moved from Kharkiv to Kyiv.",
-    german: "German occupation",
-    "block-6-1":
-      "During World War II, Kharkiv was the focus of major battles. The city was captured by Nazi Germany on 24 October 1941. A disastrous Red Army offensive failed to recover the city in May 1942. It was retaken (Operation Star) on 16 February 1943, but lost again to the Germans on 15 March 1943. 23 August 1943 saw a final liberation.",
-    "block-6-2":
-      "A memorial to 23 August 1943, the end of German occupation during World War II On the eve of the occupation, Kharkiv's prewar population of 700,000 had been doubled by the influx of refugees. What remained of the pre-war Jewish population of 130,000, were slated by the Germans for 'special treatment': between December 1941 and January 1942, they killed and buried an estimated 15,000 Jews in a ravine outside of town named Drobytsky Yar. Over their 22 months occupation they executed a further 30,000 residents, among them suspected Soviet partisans and, after a brief period of toleration, Ukrainian nationalists. 80,000 people died of hunger, cold and disease. 60,000 were forcibly transported to Germany as slave workers (Ostarbeiter). (Among these was Boris Romanchenko. The 96-year old survivor of forced labor at the Buchenwald, Peenemünde, Dora and Bergen Belsen concentration camps was killed when Russian fire hit his apartment bloc on 18 March 2022).",
-    "block-6-3":
-      "By the time of Kharkiv's liberation in August 1943, the surviving population had been reduced to under 200,000. Seventy percent of the city had been destroyed.",
-    "post-war": "Post-World War II",
-    "block-7-1":
-      "Before the occupation, Kharkiv's tank industries had been evacuated to the Urals with all their equipment, and became the heart of Red Army's tank programs (particularly, producing the T-34 tank earlier designed in Kharkiv). These enterprises returned to Kharkiv after the war, and became central elements of the post-war Soviet military industrial complex.[61] Houses and factories were rebuilt, and much of the city's center was reconstructed in the style of Stalinist Classicism.",
-    "block-7-2":
-      "In the Brezhnev-era, Kharkiv was promoted as a 'model Soviet city'. Propaganda made much of its “youthfulness”, a designation broadly used to suggest the relative absence in the city of 'material and spiritual relics' from the pre-revolutionary era, and its commitment to the new frontiers of Soviet industry and science. The city's machine-and-weapons building prowess was attributed to a forward-looking collaboration between its large-scale industrial enterprises and new research institutes and laboratories.",
-    independent: "Independent Ukraine",
-    "block-8-1":
-      "In the 1 December 1991 Referendum on the Act of Declaration of Independence, on a turnout of 76 percent 86 percent of the Kharkiv Oblast approved separate Ukrainian statehood.",
-    "block-8-2":
-      "The collapse of the Soviet Union disrupted, but did not sever, the ties that bound Kharkiv heavy's industries to the integrated Soviet market and supply chains, and did not diminish dependency on Russian oil, minerals, and gas. In Kharkiv and elsewhere in eastern Ukraine, the limited prospects for securing new economic partners in the West, and concern for the rights of Russian-speakers in the new national state, combined to promote the interests of political parties and candidates emphasising understanding and cooperation with the Russian Federation. In the new century, these were represented by the Party of Regions and by the presidential ambitions of Victor Yanukovych, which in Kharkiv triumphed in the city council elections of 2006, in the parliamentary elections of 2007 and in the presidential elections of 2010.",
-    "block-8-3":
-      "The Euromaidan protests in the winter of 2013–2014 against then president Viktor Yanukovych consisted of daily gatherings of about 200 protestors near the statue of Taras Shevchenko and were predominantly peaceful. Disappointed at the turnout, an activist at Kharkiv University suggested that his fellow students  `proved to be as much of an inert, grey and cowed mass as Kharkiv’s ‘biudzhetniki’ ` (those whose income derives from the state budget, mostly public servants). But Pro-Yanukovych demonstrations, held near the statue of Lenin in Freedom Square, were similarly small.",
-    "block-8-4":
-      "After the Euromaidan events and Russian actions in the Crimea and Donbas ruptured relations with Moscow, the Kharkiv region experienced a sharp fall in output and employment. Once a hub of cross border trade, Kharkiv was turned into a border fortress. A reorientation to new international markets, increased defense contracts (after Kyiv, the region contains the second-largest umber of military-related enterprises) and export growth in the economy's services sector helped fuel a recovery, but people's incomes did not return to pre-2014 levels.",
-    invasion: "Russian invasion 2022",
-    "block-9-1":
-      "Main article: Battle of Kharkiv (2022) During the 2022 Russian invasion of Ukraine, Kharkiv was the site of heavy fighting between the Ukrainian and Russian forces.[108] On 27 February, the governor of Kharkiv Oblast Oleh Synyehubov claimed that Russian troops were repelled from Kharkiv.",
-    "block-9-2":
-      "According to a 28 February 2022, report from Agroportal 24h, the Kharkiv Tractor Plant (KhTZ), in the south east of the city, was destroyed and “engulfed in fire” by “massive shelling” from Russian forces. Video purported to record explosions and fire at the plant on 25 and 27 February 2022. UNESCO has confirmed that in the first three weeks of bombardment the city experienced the loss or damage of at least 27 major historical buildings.",
-    "block-9-3":
-      "On 4 March 2022, Human Rights Watch reported that on the fourth day of the invasion of Ukraine by the Russian Federation, 28 February 2022, Federation forces used cluster munitions in the KhTZ , the Moskovskyi and Shevchenkivskyi districts of the city. The rights group—which noted the 'inherently indiscriminate nature of cluster munitions and their foreseeable effects on civilians' —based its assessment on interviews and an analysis of 40 videos and photographs. In March 2022, during the Battle of Kharkiv, the city was designated as a Hero City of Ukraine.",
-    "block-9-4":
-      "In May 2022, Ukrainian forces began a counter-offensive to drive Russian forces away from the city and towards the international border. By 12 May, the United Kingdom Ministry of Defence reported that Russia had withdrawn units from the Kharkiv area. Russian artillery and rockets remain within range of the city, and it continues to suffer shelling and missile strikes.",
-    liberation: "Kharkiv liberation",
-    "block-10-1":
-      "On Tuesday, the 13th of September Ukraine consolidated its control of the Kharkiv region on Tuesday, raising flags on towns and villages occupied by Russian troops for six months, and reclaiming areas seized by Moscow on the first day of Vladimir Putin’s invasion.",
-    "block-10-2":
-      "The state border service in Kyiv said it had liberated the city of Vovchansk, a couple of kilometres from the international border. Russian soldiers left on Sunday, it added, after the stunning Ukrainian counter-offensive.",
-    "block-10-3":
-      "In the space of a few days Ukraine has pushed the Russians out from more than 6,000 sq km of territory, including zones in the south of the country where a separate counter-offensive is ongoing to recapture the city of Kherson.",
-    places: "Places of Interest",
-    "freedom-square": "The Freedom Square in Kharkiv",
-    "freedom-square-description": "The city’s principal and rather incredible landmark is Freedom Square (Ploshcha Svobody), one of the largest squares in the world with an area of over 12 hectares, which holds solemn military parades as well as concerts and cultural and political events. Surrounding the square are numerous parks, bustling streets, scenic fountains and various picturesque open-air coffee bars.",
-    "zoo": "Kharkiv Zoo",
-    "zoo-description": "The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkiv Zoo.",
-    strelka: "Strelka Garden Square",
-    "strelka-description": "Strelka garden square is located in the confluence of the Kharkiv and Lopan rivers, from where, according to legend, the city of Kharkov began its origin. Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.",
-    "assumption-cathedral": "Assumption of Dormition Cathedral",
-    "assumption-cathedral-description": "Situated on a hill above the banks of the River Lopan, this is the oldest Orthodox church in Ukraine. The very high bell tower was built in honour of Alexander I to celebrate its victory against the army of Napoleon Bonaparte. The inside is very ornate, extremely large and very striking - a typical example of Orthodox places of worship.",
-    "annunciation-cathedral": "Annuciation Cathedral",
-    "annunciation-cathedral-description": "A beautiful neo-Byzantine style with five domes and a characteristic bell tower of 80 metres. Superb frescoes can be found inside this vast building, which holds up to 4,000 people. It was built between 1889 and 1901 by the local architect Mikhail Lovtsov.",
-    "shevchenko-park": "Shevchenko Park",
-    "shevchenko-park-description": "Shevchenko park is the central area of Kharkiv and holds many attractions, full of green and vast areas of flowers. The park has huge old trees planted over 500 years ago and they are protect by wrought iron fences with the date they were planted. It’s large with several fountains, at least one huge children play area with the best quality slides, climbing area. Nearby you can find restaurants, zoo and Dolphinaurium.",
-    metalist: "Metalist Sports Complex",
-    "metalist-description": "Metalist which includes the Metalist Stadium, is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.",
-    "gorky-park": "Gorky Park",
-    "gorky-park-description": "Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite place for families. The Park has 9 amusement areas for all, which range from extreme sport to kids’ games, a Medieval area and French park, as well as a cable car and the largest Ferris Wheel in Ukraine.",
-    theatre: "Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko",
-    "theatre-description": "It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.",
-    university: "Kharkiv University or Karazin University",
-    "university-description": "Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.",
-    "mirror-stream": "Mirror Stream",
-    "mirror-stream-description": "The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.",
-    designed: "Designed by",
-    designer: "Nataly Visitskaya",
-    "source-code": "Open source code by",
-    developer: "Nataliya Krylova",
-  },
-  ua: {
-    "history-link": "Історія Харкова",
-    "about-link": "Про Харків",
-    title: "З Харкова з любов'ю",
-    temperature: "Температура",
-    "feels-temperature": "Відчувається як",
-    wind: "Швидкість вітру",
-    "wind-metric": "м/с",
-    humidity: "Вологість",
-    pressure: "Атмосферний тиск",
-    sunrise: "Схід сонця",
-    sunset: "Захід сонця",
-    "secondary-title": "Історія Харкова",
-    origini: "Истоки",
-    "block-1-1":
-      "Харків, також відомий як Харків (російський), є другим за величиною містом і муніципалітетом в Україні. Розташоване на північному сході країни, це найбільше місто історичного регіону Слобожанщина.",
-    "block-1-2":
-      "Харків є адміністративним центром Харківської області та прилеглого до неї Харківського району. Остання чисельність населення становить 1 433 886 осіб (2021 за східним часом)..",
-    "block-1-3":
-      "Харків був заснований в 1654 році як Харківська фортеця, і після цих скромних починань він перетворився на великий центр промисловості, торгівлі та української культури в Російській імперії. На початку 20 століття населення міста було переважно російським, але оскільки промислова експансія залучала додаткову робочу силу з важкої сільської місцевості, а радянський режим пом'якшував попередні обмеження на українське культурне самовираження, напередодні Другої світової війни значна частина населення була офіційно визначена як українська. З грудня 1919 по січень 1934 року Харків був першою столицею Української Радянської Соціалістичної Республіки.",
-    "early-history": "Рання історія",
-    "block-2-1":
-      "Зображення легендарного засновника Харитона або Харко (листівка періоду Російської імперії, близько 1890 - х років).",
-    "block-2-2":
-      "Найдавніші історичні згадки про цей регіон відносяться до поселення скіфів і сарматів у 2 столітті до нашої ери. Між 2-м і 6-м століттями нашої ери існують свідчення черняхівської культури, багатонаціональної суміші гето-дакійського, сарматського і готського населення. У 8-10 століттях Хозарська фортеця Верхнє Салтово стояла приблизно в 25 милях (40 км) на схід від сучасного міста, недалеко від Старого Салтова. Протягом 12 століття ця територія була частиною території Куманів, а потім з середини 13 століття монголо-татарської Золотої Орди.",
-    "block-2-3":
-      "На початку 17 століття ця територія була суперечливим прикордонним регіоном з населенням відступників, яке почало організовуватися в козацькі формування та громади, визначені загальною рішучістю протистояти як татарському рабству, так і польсько-литовському та російському кріпацтву. У середині століття повстання Хмельницького проти Речі Посполитої ознаменувалося короткочасним створенням незалежного козацького гетьманства.",
-    fortress: "Харківська фортеця",
-    "block-3-1":
-      "У 1654 році, в розпал цього періоду смути для Правобережної України, групи людей прийшли на береги річок Лопань і Харків, де вони відродили і зміцнили покинуте поселення. Існує народна етимологія, яка пов'язує назву як населеного пункту, так і річки з легендарним козацьким засновником на ім'я Харко (зменшувальна форма імені Харитон, Українська: Харитон, латинізована: Харитон, або Захарія, Українська: Захарій, латинізована: Захарій). Але назва річки засвідчена раніше, ніж заснування фортеці.",
-    "block-3-2":
-      "Поселення неохоче прийняло захист і владу російського воєводи з Чугуєва за 40 кілометрів (25 миль) на схід. Першим призначеним воєводою з Москви був воєвода Селіфонтово в 1656 році, який почав будувати місцевий острог (фортеця). У 1658 році новий воєвода Іван Офросимов наказав місцевим жителям цілувати хрест на знак вірності царю Олексію. На чолі зі своїм отаманом Іваном Кривошликом відмовилися. Однак з обранням нового отамана Тіміша Лавринова відносини, мабуть, налагодилися: московський цар задовольнив прохання громади (підписану настоятелями нового Успенського собору і парафіяльних церков Благовіщення і Трійці) про створення місцевого ринку.",
-    "block-3-3":
-      "На той час населення Харкова становило трохи більше 1000 осіб, половину з яких становили місцеві козаки. Селіфонтов привів з собою Московський гарнізон всього з 70 солдатів. Оборона покладалася на місцевий Слобідський козачий полк, який підпорядковувався загону наказ, військовому відомству, яким командували з Бєлгорода.",
-    empire: "В Російській імперії",
-    "block-4-1":
-      "Вид на Харків 19 століття, з дзвіницею Успенського собору, що підноситься над горизонтом. Адміністративні реформи призвели до того, що з 1708 року Харків управлявся з Києва, а з 1727 року - з Бєлгорода. У 1765 році Харків був заснований як резиденція окремої Слобідської Української губернії.",
-    "block-4-2":
-      "Харківський університет був заснований в 1805 році в палаці генерал-губернаторства. Олександр Миколайович Міцкевич, брат польського національного поета Адама Міцкевича, був професором права в університеті, тоді як інша знаменитість, Гете, шукав викладачів для школи. Одним з його пізніх випускників був Іван Франко, якому в 1906 році була присуджена докторська ступінь з російського мовознавства.",
-    "block-4-3":
-      "Вулиці в центрі міста вперше були вимощені бруківкою в 1830 році. У 1844 році поруч із першим Успенським собором (згодом перетвореним радянською владою на радіовежу) була побудована 90-метрова (300 футів) Олександрівська дзвіниця, присвячена перемозі над Наполеоном I у 1812 році. Система проточної води була створена в 1870 році.",
-    "block-4-4":
-      "Протягом 19 століття, незважаючи на переважання російськомовного населення, Харків став центром української культури. Перша українська газета була видана в місті в 1812 році. Незабаром після Кримської війни, в 1860-61 роках, в місті була створена громада, одне з мережі таємних товариств, які заклали основу для появи українського національного руху. Її найвидатнішим членом був філософ, лінгвіст і панславістський активіст Олександр Потебня. Членами студентської громади в місті були майбутні національні лідери Борис Мартос і Дмитро Антонович, і, на загальну думку, Вони були першими, хто використав гасло 'Слава Україні!'і його відповідь 'Слава на всій Землі!'.",
-    "block-4-5":
-      "Після Лютневої революції 1917 р.СДЛП була головною партією в першому українському уряді, Генеральному секретаріаті України. Центральна Рада (Центральна Рада) українських партій у Києві уповноважила Секретаріат вести переговори про національну автономію з Тимчасовим урядом Росії. У наступні місяці, у міру погіршення умов воєнного часу, УСДРП втратила підтримку в Харкові та інших місцях Української Соціалістичної революційної партії (СР), яка організовувалася як у селянських громадах, так і в незадоволених військових частинах.",
-    soviet: "Радянське місто",
-    "block-5-1":
-      "Будівля Держпрому в кінці 1920-х років. На виборах до Установчих зборів Росії, що відбулися в листопаді 1917 року, більшовики, які захопили владу в Петрограді і Москві, отримали всього 10,5 відсотка голосів в губернії, в порівнянні з 73 відсотками за блок російських і українських соціалістів-революціонерів. Командуючи голосами робітників, а не селян, в самому місті більшовики завоювали безліч.",
-    "block-5-2":
-      "Коли в Петрограді Ленінська Рада Народних Комісарів розпустила Установчі збори після його першого засідання, Центральна Рада в Києві проголосила незалежність Української Народної Республіки (УНР), більшовики вийшли зі складу Центральної Ради і сформували свою власну Раду (Національна рада) в Харкові. До лютого 1918 року їхні війська захопили більшу частину України.",
-    "block-5-3":
-      "Вони зробили Харків столицею Донецько-Криворізької Радянської Республіки. Через шість тижнів, згідно з умовами договору, узгодженого з Центральними державами в Брест-Литовську, вони залишили місто і передали територію окупованій німцями Українській державі.",
-    "block-5-4":
-      "У 1920-х роках Українська РСР заохочувала використання української мови, зобов'язавши її використовувати у всіх школах. На практиці частка середніх шкіл з викладанням українською мовою залишалася нижчою, ніж частка етнічних українців у населенні Харківської області. Політика українізації була звернена назад з судовим переслідуванням в Харкові в 1930 році Союзу за свободу України. Сотні представників української інтелігенції були заарештовані і депортовані.",
-    "block-5-5":
-      "У 1932 і 33 роках поєднання вилучень зерна і примусової колективізації селянських господарств створило умови голоду, Голодомору, який змусив людей покинути землю і відправитися до Харкова та інших міст у пошуках їжі. Свідчення очевидців із Заходу, в тому числі американського комуніста Фреда Біла, який працював на Харківському тракторному заводі, цитувалися в міжнародній пресі, але до епохи гласності в Радянському Союзі постійно засуджувалися як вигадки.",
-    "block-5-6":
-      "У 1934 році сотні українських письменників, інтелектуалів і діячів культури були заарештовані і страчені в спробі викорінити всі залишки українського націоналізму. Чистки тривали і в 1938 році. Сліпі українські вуличні музиканти Кобзарі також були схоплені в Харкові і вбиті співробітниками НКВС. Впевнений у своєму контролі над Україною, у січні 1934 року Сталін наказав перенести столицю Української РСР з Харкова до Києва.",
-    german: "Німецька окупація",
-    "block-6-1":
-      "Під час Другої світової війни Харків був центром великих битв. Місто було захоплене нацистською Німеччиною 24 жовтня 1941 року. Катастрофічний наступ Червоної Армії не зміг повернути місто в травні 1942 року. Він був відбитий (операція 'зірка') 16 лютого 1943 року, але знову втрачений німцями 15 березня 1943 року. 23 серпня 1943 року відбулося остаточне звільнення.",
-    "block-6-2":
-      "Пам'ятник 23 серпня 1943 року, закінченню німецької окупації під час Другої світової війни напередодні окупації довоєнне населення Харкова в 700 000 чоловік подвоїлося через приплив біженців. Те, що залишилося від довоєнного єврейського населення в 130 000 чоловік, було намічено німцями для 'особливого поводження': в період з грудня 1941 по січень 1942 року вони вбили і поховали приблизно 15 000 євреїв в яру за межами міста під назвою Дробицький яр. За 22 місяці окупації вони стратили ще 30 000 жителів, серед яких були підозрювані радянські партизани і, після короткого періоду терпимості, українські націоналісти. 80 000 людей померли від голоду, холоду та хвороб. 60 000 були примусово вивезені до Німеччини як рабовласники (Ostarbeiter). (Серед них був Борис Романченко. 96-річний чоловік, який пережив примусові роботи в концтаборах Бухенвальд, Пенемюнде, Дора і Берген-Бельзен, був убитий, коли 18 березня 2022 року в його житловому будинку сталася пожежа, влаштована росіянами).",
-    "block-6-3":
-      "На момент звільнення Харкова в серпні 1943 року населення, що вижило, скоротилося менш ніж до 200 000. Сімдесят відсотків міста було зруйновано.",
-    "post-war": "Після Другої світової війни",
-    "block-7-1":
-      "До окупації харківські танкові заводи були евакуйовані на Урал з усім своїм обладнанням і стали серцем танкових програм Червоної армії (зокрема, виробництво танка Т-34, раніше розробленого в Харкові). Ці підприємства повернулися до Харкова після війни і стали центральними елементами післявоєнного радянського військово-промислового комплексу.[61] Будинки та фабрики були відбудовані, а більша частина центру міста реконструйована у стилі сталінського класицизму.",
-    "block-7-2":
-      "В епоху Брежнєва Харків рекламувався як 'зразкове радянське місто'. Пропаганда широко використовувала його 'молодість', позначення, широко використовуване для позначення відносної відсутності в місті матеріальних і духовних реліквій дореволюційної епохи, і його прихильності новим рубежам радянської промисловості і науки. Успіхи міста в галузі машинобудування і збройового виробництва пояснювалися перспективним співробітництвом між його великими промисловими підприємствами і новими науково-дослідними інститутами і лабораторіями.",
-    independent: "Незалежна Україна",
-    "block-8-1":
-      "На референдумі 1 грудня 1991 року за актом проголошення незалежності при явці 76 відсотків 86 відсотків жителів Харківської області схвалили окрему українську державність.",
-    "block-8-2":
-      "Розпад Радянського Союзу зруйнував, але не розірвав зв'язки, які пов'язували підприємства Харківської важкої промисловості з інтегрованим радянським ринком і ланцюжками поставок, і не зменшив залежність від російської нафти, корисних копалин і газу. У Харкові та інших місцях на сході України обмежені перспективи залучення нових економічних партнерів на Заході і турбота про права російськомовних в новій національній державі в сукупності сприяли просуванню інтересів політичних партій і кандидатів, що підкреслюють взаєморозуміння і співпрацю з Російською Федерацією. У новому столітті вони були представлені Партією регіонів і президентськими амбіціями Віктора Януковича, які в Харкові здобули перемогу на виборах до міської ради 2006 року, на парламентських виборах 2007 року і на президентських виборах 2010 року.",
-    "block-8-3":
-      "Протести Євромайдану взимку 2013-2014 років проти тодішнього президента Віктора Януковича складалися з щоденних зібрань близько 200 протестувальників біля пам'ятника Тарасу Шевченку і носили переважно мирний характер. Розчарований явкою активіст Харківського університету припустив, що його однокурсники виявилися такою ж інертною, сірою і заляканою масою, як і харківські 'бюджетники' (ті, чиї доходи надходять з державного бюджету, в основному державні службовці). Але демонстрації прихильників Януковича, що проходили біля пам'ятника Леніну на площі Свободи, були настільки ж нечисленними.",
-    "block-8-4":
-      "Після подій Євромайдану і дій Росії в Криму і на Донбасі відносини з Москвою розірвалися, в Харківській області відбулося різке падіння виробництва і зайнятості. Колись центр транскордонної торгівлі, Харків був перетворений на прикордонну фортецю. Переорієнтація на нові міжнародні ринки, збільшення оборонних контрактів (після Києва в регіоні знаходиться друга за величиною кількість підприємств, пов'язаних з військовою сферою) і зростання експорту в секторі послуг економіки сприяли відновленню, але доходи населення не повернулися до рівнів, що існували до 2014 року.",
-    invasion: "Russian invasion 2022",
-    "block-9-1":
-      "Основна стаття: Битва За Харків (2022) під час російського вторгнення в Україну в 2022 році Харків був місцем важких боїв між українськими та російськими військами.[108] 27 лютого губернатор Харківської області Олег Синєгубов заявив, що російські війська були відкинуті від Харкова.",
-    "block-9-2":
-      "Згідно зі звітом агропорталу 24h від 28 Лютого 2022 року, Харківський тракторний завод (ХТЗ), розташований на південному сході міста, був зруйнований і 'охоплений вогнем' в результаті 'масованого обстрілу' з боку російських військ. На відео нібито зафіксовано вибухи та пожежу на заводі 25 та 27 лютого 2022 року. ЮНЕСКО підтвердила, що за перші три тижні бомбардувань в місті були втрачені або пошкоджені щонайменше 27 великих історичних будівель.",
-    "block-9-3":
-      "4 березня 2022 року Х'юман Райтс Вотч повідомила, що на четвертий день вторгнення Російської Федерації в Україну, 28 Лютого 2022 року, сили Федерації застосували касетні боєприпаси в ХТЗ, Московському та Шевченківському районах міста. Правозахисна група, яка відзначила 'спочатку невибірковий характер касетних боєприпасів та їх передбачуваний вплив на цивільне населення', базувала свою оцінку на інтерв'ю та аналізі 40 відео та фотографій. У березні 2022 року, під час битви за Харків, місто було оголошено містом-героєм України.",
-    "block-9-4":
-      "У травні 2022 року українські війська розпочали контрнаступ, щоб відтіснити російські війська від міста до міжнародного кордону. До 12 травня Міністерство оборони Сполученого Королівства повідомило, що Росія вивела підрозділи з району Харкова. Російська артилерія і ракети залишаються в межах досяжності міста, і він продовжує піддаватися обстрілам і ракетним ударам.",
-    liberation: "Визволення Харкова",
-    "block-10-1":
-      "У вівторок, 13 вересня, Україна зміцнила свій контроль над Харківською областю у вівторок, піднявши прапори над містами і селами, окупованими російськими військами протягом шести місяців, і повернувши райони, захоплені Москвою в перший день вторгнення Володимира Путіна.",
-    "block-10-2":
-      "Державна прикордонна служба в Києві заявила, що звільнила місто Вовчанськ, розташоване в парі кілометрів від міжнародного кордону. Російські солдати пішли в неділю, додала вона, після приголомшливого українського контрнаступу.",
-    "block-10-3":
-      "Протягом декількох днів Україна витіснила росіян з території площею понад 6000 кв. км, включаючи зони на півдні країни, де триває окремий контрнаступ з метою повернути місто Херсон.",
-    places: "Tуристичнi пам'ятки",
-    "freedom-square": "Площа Свободи в Харкові",
-    "freedom-square-description": "Головною і досить неймовірною пам'яткою міста є Площа Свободи (Ploshcha Svobody), одна з найбільших площ у світі площею понад 12 гектарів, на якій проводяться урочисті військові паради, а також концерти та культурні та політичні заходи. Площу оточують численні парки, жваві вулиці, мальовничі фонтани і різні мальовничі кафе-бари під відкритим небом.",
-    "zoo": "Харківський зоопарк",
-    "zoo-description": "Харківський зоопарк-це державний зоологічний парк в Харкові. Харківський зоопарк-найстаріший зоопарк в Україні, він був заснований в 1896 році. Він розташований в самому центрі міста поруч з парком Шевченка. Зоопарк займає територію в 22 гектари, де знайшли свій будинок 6810 тварин 385 видів. Серед них 103 види вважаються рідкісними і знаходяться під охороною. Багато з них добре розмножуються в домашній обстановці Харківського зоопарку.",
-    strelka: "Садова площа Cтрілка",
-    "strelka-description": "Сквер Стрілка розташований в місці злиття річок Харків і Лопань, звідки, за легендою, почав своє походження місто Харків. Сквер Стрілка - одне з найпопулярніших місць відпочинку серед харків'ян.Тут багато дерев, які створюють приємну тінь і відгороджують від шуму великого міста.",
-    "assumption-cathedral": "Успенський кафедральний собор",
-    "assumption-cathedral-description": "Розташована на пагорбі над берегами річки Лопань, це найстаріша православна церква в Україні. Дуже висока дзвіниця була побудована на честь Олександра I, щоб відсвяткувати його перемогу над армією Наполеона Бонапарта. Внутрішня частина дуже багато прикрашена, надзвичайно велика і дуже ефектна - типовий приклад православних культових споруд.",
-    "annunciation-cathedral": "Благовіщенський собор",
-    "annunciation-cathedral-description": "Гарний неовізантійський стиль з п'ятьма куполами та характерною 80-метровою дзвіницею. Усередині цієї величезної будівлі, що вміщає до 4000 чоловік, можна знайти чудові фрески. Він був побудований між 1889 і 1901 роками місцевим архітектором Михайлом Ловцовим.",
-    "shevchenko-park": "Парк Шевченка",
-    "shevchenko-park-description": "Парк Шевченка є центральним районом Харкова і містить безліч пам'яток, що потопають у зелені і великих квіткових площах. У парку є величезні старі дерева, висаджені понад 500 років тому, і вони захищені Кованими залізними огорожами з датою їх посадки. Він великий, з кількома фонтанами, принаймні одним величезним дитячим майданчиком з найякіснішими гірками, майданчиком для скелелазіння. Поблизу Ви можете знайти ресторани, зоопарк і дельфінарій.",
-    metalist: "Спортивний комплекс Mеталіст",
-    "metalist-description": "'Металіст', який включає в себе стадіон 'Металіст', є багатофункціональним стадіоном в Харкові, Україна. Він використовується в основному для футбольних матчів і є домашнім стадіоном харківського ФК 'Металіст 1925'. Стадіон, який був місцем проведення Євро-2012, наразі вміщує 40 003 глядачів.",
-    "gorky-park": "Парк Горького",
-    "gorky-park-description": "Не пропустіть відвідування Центрального парку культури і відпочинку імені Горького, улюбленого місця сімейного відпочинку. У парку є 9 розважальних зон для всіх, які варіюються від екстремальних видів спорту до дитячих ігор, середньовічна зона і французький парк, а також Канатна дорога і найбільше колесо огляду в Україні.",
-    theatre: "Харківський державний академічний театр опери та балету імені М. Лисенка",
-    "theatre-description": "Це перший академічний театр в Україні. Цей один з провідних українських театрів був відкритий в 1925 році. У 2007 році перед театром були побудовані красиві фонтани, які швидко стали дуже популярними. Репертуар включає близько 50 опер і балетів, більшість з яких українські та російські, але є й італійські.",
-    university: "Харківський університет iм. Каразіна",
-    "university-description": "Харківський національний університет імені В. Н.Каразіна (Укр: Харківський національний університет імені В. Н. Каразіна) - один з найбільших вузів України, і раніше в Російській імперії та СРСР. Він був заснований в 1804 році зусиллями Василя Каразіна і став другим найстарішим університетом в сучасній Україні.",
-    "mirror-stream": "Дзеркальнa струя",
-    "mirror-stream-description": "Дзеркальний потік-фонтан в Харкові, Україна. Природний фонтан був виявлений в 1947 році.Фонтан знаходиться поруч з Харківською філармонією. Він був побудований в 1947 році. Він залишається одним з найбільш чудових архітектурних пам'яток Харкова і, завдяки цьому, внесений до Енциклопедії ЮНЕСКО.",
-    designed: "Дизайн",
-    designer: "Наталія Висицька",
-    "source-code": "Відкритий вихідний код",
-    developer: "розробник Наталія Крилова",
-  },
-};
+      const translationObj = {
+        en: {
+          "history-link": "History of Kharkiv",
+          "about-link": "About Kharkiv",
+          title: "From Kharkiv With Love",
+          temperature: "Temperature",
+          "feels-temperature": "Feels like",
+          wind: "Wind speed",
+          "wind-metric": "m/s",
+          humidity: "Humidity",
+          pressure: "Pressure",
+          sunrise: "Sunrise",
+          sunset: "Sunset",
+          "secondary-title": "The History of Kharkiv",
+          origini: "Origini",
+          "block-1-1":
+            "Kharkiv, also known as Kharkov (Russian), is the second-largest city and municipality in Ukraine. Located in the northeast of the country, it is the largest city of the historic Slobozhanshchyna region.",
+          "block-1-2":
+            "Kharkiv is the administrative centre of Kharkiv Oblast and of the surrounding Kharkiv Raion. The latest population is 1,433,886 (2021 est.).",
+          "block-1-3":
+            "Kharkiv was founded in 1654 as Kharkiv fortress, and after these humble beginnings, it grew to be a major centre of industry, trade and Ukrainian culture in the Russian Empire. At the beginning of the 20th century, the city was predominantly Russian in population, but as industrial expansion drew in further labor from the distressed countryside, and as the Soviet regime moderated previous restrictions on Ukrainian cultural expression, by the eve of World War II the greater part of the population was officially identified as Ukrainian. From December 1919 to January 1934, Kharkiv was the first capital of the Ukrainian Soviet Socialist Republic.",
+          "early-history": "Early history",
+          "block-2-1":
+            "A depiction of the legendary founder Khariton or Kharko (postcard of the Russian imperial period, c. 1890s).",
+          "block-2-2":
+            "The earliest historical references to the region are to Scythian and Sarmatian settlement in the 2nd century BCE. Between the 2nd to the 6th centuries CE there is evidence of Chernyakhov culture, a multiethnic mix of the Geto-Dacian, Sarmatian, and Gothic populations. In the 8th to 10th centuries the Khazar fortress of Verkhneye Saltovo stood about 25 miles (40 km) east of the modern city, near Staryi Saltiv. During the 12th century, the area was part of the territory of the Cumans, and then from the mid 13th century of the Mongol/Tartar Golden Horde.",
+          "block-2-3":
+            "By the early 17th century, the area was a contested frontier region with renegade populations that had begun to organise in Cossack formations and communities defined by a common determination to resist both Tatar slavery, and Polish-Lithuanian and Russian serfdom. Mid-century, the Khmelnytsky Uprising against the Polish-Lithuanian Commonwealth saw the brief establishment of an independent Cossack Hetmanate.",
+          fortress: "Kharkiv Fortress",
+          "block-3-1":
+            "In 1654, in the midst of this period of turmoil for Right-bank Ukraine, groups of people came onto the banks of Lopan and Kharkiv rivers where they resurrected and fortified an abandoned settlement. There is a folk etymology that connects the name of both the settlement and the river to a legendary cossack founder named Kharko (a diminutive form of the name Chariton, Ukrainian: Харитон, romanized: Khariton, or Zechariah, Ukrainian: Захарій, romanized: Zakharii). But the river's name is attested earlier than the foundation of the fortress.",
+          "block-3-2":
+            "The settlement reluctantly accepted the protection and authority of a Russian voivode from Chuhuiv 40 kilometres (25 mi) to the east. The first appointed voivode from Moscow was Voyin Selifontov in 1656, who began to build a local ostrog (fort). In 1658, a new voivode, Ivan Ofrosimov, commanded the locals to kiss the cross in a demonstration of loyalty to Tsar Alexis. Led by their otaman Ivan Kryvoshlyk, the refused refused. However, with the election of a new otaman, Tymish Lavrynov, relations appear to have been repaired, the Tsar in Moscow granting the community's request (signed by the deans of the new Assumption Cathedral and parish churches of Annunciation and Trinity) to establish a local market.",
+          "block-3-3":
+            "At that time the population of Kharkiv was just over 1000, half of whom were local cossacks. Selifontov had brought with him a Moscow garrison of only 70 soldiers. Defence rested with a local sloboda cossack regiment under the jurisdiction of the Razryad Prikaz, a military agency commanded from Belgorod.",
+          empire: "In the Russian Empire",
+          "block-4-1":
+            "A 19th-century view of Kharkiv, with the belltower of the Assumption Cathedral dominating the skyline. Administrative reforms led to Kharkiv being governed from 1708 from Kyiv, and from 1727 from Belgorod. In 1765 Kharkiv was established as the seat of a separate Sloboda Ukraine Governorate.",
+          "block-4-2":
+            "Kharkiv University was established in 1805 in the Palace of Governorate-General. Alexander Mikolajewicz Mickiewicz, brother of the Polish national poet Adam Mickiewicz, was a professor of law in the university, while another celebrity, Goethe, searched for instructors for the school. One of its later graduates was In Ivan Franko to whom it awarded a doctorate in Russian linguistics in 1906.",
+          "block-4-3":
+            "The streets were first cobbled in the city centre in 1830. In 1844 the 90 metres (300 ft) tall Alexander Bell Tower, commemorating the victory over Napoleon I in 1812, was built next to the first Assumption Cathedral (later to be transformed by the Soviet authorities into a radio tower). A system of running water was established in 1870.",
+          "block-4-4":
+            "In the course of the 19th century, although predominantly Russian speaking, Kharkiv became a centre of Ukrainian culture. The first Ukrainian newspaper was published in the city in 1812. Soon after the Crimean War, in 1860–61, a hromada was established in the city, one of a network of secret societies that laid the groundwork for the appearance of a Ukrainian national movement. Its most prominent member was the philosopher, linguist and pan-slavist activist Oleksandr Potebnia. Members of a student hromada in the city included the future national leaders Borys Martos and Dmytro Antonovych, and reputedly were the first to employ the slogan 'Glory to Ukraine!' and its response 'Glory on all of earth!'.",
+          "block-4-5":
+            "After the February Revolution of 1917, the USDLP was the main party in the first Ukrainian government, the General Secretariat of Ukraine. The Tsentralna Rada (central council) of Ukrainian parties in Kyiv authorised the Secretariat to negoitate national autonomy with the Russian Provisional Government. In the succeeding months, as wartime conditions deteriorated, the USDLP lost support in Kharkiv and elsewhere to the Ukrainian Socialist Revolutionary Party (SR) which organised both in peasant communities and in disaffected military units.",
+          soviet: "The Soviet city",
+          "block-5-1":
+            "The Derzhprom building in the late 1920s. In the Russian Constituent Assembly election held in November 1917, the Bolsheviks who had seized power in Petrograd and Moscow received just 10.5 percent of the vote in the Governorate, compared to 73 percent for a bloc of Russian and Ukrainian Socialist Revolutionaries. Commanding worker, rather than peasant, votes, within the city itself the Bolsheviks won a plurality.",
+          "block-5-2":
+            "When in Petrograd Lenin's Council of People's Commissars disbanded the Constituent Assembly after its first sitting, the Tsentralna Rada in Kyiv proclaimed the independence of the Ukrainian People's Republic (UPR) Bolsheviks withdrew from Tsentralna Rada and formed their own Rada (national council) in Kharkiv. By February 1918 their forces had captured much of Ukraine.",
+          "block-5-3":
+            "They made Kharkiv the capital of the Donetsk-Krivoy Rog Soviet Republic. Six weeks later, under the treaty terms agreed with the Central Powers at Brest-Litovsk, they abandoned the city and ceded the territory to the German-occupied Ukrainian State.",
+          "block-5-4":
+            "In the 1920s, the Ukrainian SSR promoted the use of the Ukrainian language, mandating it for all schools. In practice the share of secondary schools teaching in the Ukrainian language remained lower than the ethnic Ukrainian share of the Kharkiv Oblasts population. The Ukrainization policy was reversed, with the prosecution in Kharkiv in 1930 of the Union for the Freedom of Ukraine. Hundreds of Ukrainian intellectuals were arrested and deported.",
+          "block-5-5":
+            "In 1932 and '33, the combination of grain seizures and the forced collectivisation of peasant holdings created famine conditions, the Holodomor, driving people off the land and into Kharkiv, and other cities, in search of food. Eye-witness accounts by westerners—among them those of American Communist Fred Beal employed in the Kharkiv Tractor Factory —were cited in the international press but, until the era of Glasnost were consistently denounced in the Soviet Union as fabrications.",
+          "block-5-6":
+            "In 1934 hundreds of Ukrainian writers, intellectuals and cultural workers were arrested and executed in the attempt to eradicate all vestiges of Ukrainian nationalism. The purges continued into 1938. Blind Ukrainian street musicians Kobzars were also rounded up in Kharkiv and murdered by the NKVD. Confident in his control over Ukraine, in January 1934 Stalin had the capital of the Ukrainian SSR moved from Kharkiv to Kyiv.",
+          german: "German occupation",
+          "block-6-1":
+            "During World War II, Kharkiv was the focus of major battles. The city was captured by Nazi Germany on 24 October 1941. A disastrous Red Army offensive failed to recover the city in May 1942. It was retaken (Operation Star) on 16 February 1943, but lost again to the Germans on 15 March 1943. 23 August 1943 saw a final liberation.",
+          "block-6-2":
+            "A memorial to 23 August 1943, the end of German occupation during World War II On the eve of the occupation, Kharkiv's prewar population of 700,000 had been doubled by the influx of refugees. What remained of the pre-war Jewish population of 130,000, were slated by the Germans for 'special treatment': between December 1941 and January 1942, they killed and buried an estimated 15,000 Jews in a ravine outside of town named Drobytsky Yar. Over their 22 months occupation they executed a further 30,000 residents, among them suspected Soviet partisans and, after a brief period of toleration, Ukrainian nationalists. 80,000 people died of hunger, cold and disease. 60,000 were forcibly transported to Germany as slave workers (Ostarbeiter). (Among these was Boris Romanchenko. The 96-year old survivor of forced labor at the Buchenwald, Peenemünde, Dora and Bergen Belsen concentration camps was killed when Russian fire hit his apartment bloc on 18 March 2022).",
+          "block-6-3":
+            "By the time of Kharkiv's liberation in August 1943, the surviving population had been reduced to under 200,000. Seventy percent of the city had been destroyed.",
+          "post-war": "Post-World War II",
+          "block-7-1":
+            "Before the occupation, Kharkiv's tank industries had been evacuated to the Urals with all their equipment, and became the heart of Red Army's tank programs (particularly, producing the T-34 tank earlier designed in Kharkiv). These enterprises returned to Kharkiv after the war, and became central elements of the post-war Soviet military industrial complex.[61] Houses and factories were rebuilt, and much of the city's center was reconstructed in the style of Stalinist Classicism.",
+          "block-7-2":
+            "In the Brezhnev-era, Kharkiv was promoted as a 'model Soviet city'. Propaganda made much of its “youthfulness”, a designation broadly used to suggest the relative absence in the city of 'material and spiritual relics' from the pre-revolutionary era, and its commitment to the new frontiers of Soviet industry and science. The city's machine-and-weapons building prowess was attributed to a forward-looking collaboration between its large-scale industrial enterprises and new research institutes and laboratories.",
+          independent: "Independent Ukraine",
+          "block-8-1":
+            "In the 1 December 1991 Referendum on the Act of Declaration of Independence, on a turnout of 76 percent 86 percent of the Kharkiv Oblast approved separate Ukrainian statehood.",
+          "block-8-2":
+            "The collapse of the Soviet Union disrupted, but did not sever, the ties that bound Kharkiv heavy's industries to the integrated Soviet market and supply chains, and did not diminish dependency on Russian oil, minerals, and gas. In Kharkiv and elsewhere in eastern Ukraine, the limited prospects for securing new economic partners in the West, and concern for the rights of Russian-speakers in the new national state, combined to promote the interests of political parties and candidates emphasising understanding and cooperation with the Russian Federation. In the new century, these were represented by the Party of Regions and by the presidential ambitions of Victor Yanukovych, which in Kharkiv triumphed in the city council elections of 2006, in the parliamentary elections of 2007 and in the presidential elections of 2010.",
+          "block-8-3":
+            "The Euromaidan protests in the winter of 2013–2014 against then president Viktor Yanukovych consisted of daily gatherings of about 200 protestors near the statue of Taras Shevchenko and were predominantly peaceful. Disappointed at the turnout, an activist at Kharkiv University suggested that his fellow students  `proved to be as much of an inert, grey and cowed mass as Kharkiv’s ‘biudzhetniki’ ` (those whose income derives from the state budget, mostly public servants). But Pro-Yanukovych demonstrations, held near the statue of Lenin in Freedom Square, were similarly small.",
+          "block-8-4":
+            "After the Euromaidan events and Russian actions in the Crimea and Donbas ruptured relations with Moscow, the Kharkiv region experienced a sharp fall in output and employment. Once a hub of cross border trade, Kharkiv was turned into a border fortress. A reorientation to new international markets, increased defense contracts (after Kyiv, the region contains the second-largest umber of military-related enterprises) and export growth in the economy's services sector helped fuel a recovery, but people's incomes did not return to pre-2014 levels.",
+          invasion: "Russian invasion 2022",
+          "block-9-1":
+            "Main article: Battle of Kharkiv (2022) During the 2022 Russian invasion of Ukraine, Kharkiv was the site of heavy fighting between the Ukrainian and Russian forces.[108] On 27 February, the governor of Kharkiv Oblast Oleh Synyehubov claimed that Russian troops were repelled from Kharkiv.",
+          "block-9-2":
+            "According to a 28 February 2022, report from Agroportal 24h, the Kharkiv Tractor Plant (KhTZ), in the south east of the city, was destroyed and “engulfed in fire” by “massive shelling” from Russian forces. Video purported to record explosions and fire at the plant on 25 and 27 February 2022. UNESCO has confirmed that in the first three weeks of bombardment the city experienced the loss or damage of at least 27 major historical buildings.",
+          "block-9-3":
+            "On 4 March 2022, Human Rights Watch reported that on the fourth day of the invasion of Ukraine by the Russian Federation, 28 February 2022, Federation forces used cluster munitions in the KhTZ , the Moskovskyi and Shevchenkivskyi districts of the city. The rights group—which noted the 'inherently indiscriminate nature of cluster munitions and their foreseeable effects on civilians' —based its assessment on interviews and an analysis of 40 videos and photographs. In March 2022, during the Battle of Kharkiv, the city was designated as a Hero City of Ukraine.",
+          "block-9-4":
+            "In May 2022, Ukrainian forces began a counter-offensive to drive Russian forces away from the city and towards the international border. By 12 May, the United Kingdom Ministry of Defence reported that Russia had withdrawn units from the Kharkiv area. Russian artillery and rockets remain within range of the city, and it continues to suffer shelling and missile strikes.",
+          liberation: "Kharkiv liberation",
+          "block-10-1":
+            "On Tuesday, the 13th of September Ukraine consolidated its control of the Kharkiv region on Tuesday, raising flags on towns and villages occupied by Russian troops for six months, and reclaiming areas seized by Moscow on the first day of Vladimir Putin’s invasion.",
+          "block-10-2":
+            "The state border service in Kyiv said it had liberated the city of Vovchansk, a couple of kilometres from the international border. Russian soldiers left on Sunday, it added, after the stunning Ukrainian counter-offensive.",
+          "block-10-3":
+            "In the space of a few days Ukraine has pushed the Russians out from more than 6,000 sq km of territory, including zones in the south of the country where a separate counter-offensive is ongoing to recapture the city of Kherson.",
+          places: "Places of Interest",
+          "freedom-square": "The Freedom Square in Kharkiv",
+          "freedom-square-description":
+            "The city’s principal and rather incredible landmark is Freedom Square (Ploshcha Svobody), one of the largest squares in the world with an area of over 12 hectares, which holds solemn military parades as well as concerts and cultural and political events. Surrounding the square are numerous parks, bustling streets, scenic fountains and various picturesque open-air coffee bars.",
+          zoo: "Kharkiv Zoo",
+          "zoo-description":
+            "The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkiv Zoo.",
+          strelka: "Strelka Garden Square",
+          "strelka-description":
+            "Strelka garden square is located in the confluence of the Kharkiv and Lopan rivers, from where, according to legend, the city of Kharkov began its origin. Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.",
+          "assumption-cathedral": "Assumption of Dormition Cathedral",
+          "assumption-cathedral-description":
+            "Situated on a hill above the banks of the River Lopan, this is the oldest Orthodox church in Ukraine. The very high bell tower was built in honour of Alexander I to celebrate its victory against the army of Napoleon Bonaparte. The inside is very ornate, extremely large and very striking - a typical example of Orthodox places of worship.",
+          "annunciation-cathedral": "Annuciation Cathedral",
+          "annunciation-cathedral-description":
+            "A beautiful neo-Byzantine style with five domes and a characteristic bell tower of 80 metres. Superb frescoes can be found inside this vast building, which holds up to 4,000 people. It was built between 1889 and 1901 by the local architect Mikhail Lovtsov.",
+          "shevchenko-park": "Shevchenko Park",
+          "shevchenko-park-description":
+            "Shevchenko park is the central area of Kharkiv and holds many attractions, full of green and vast areas of flowers. The park has huge old trees planted over 500 years ago and they are protect by wrought iron fences with the date they were planted. It’s large with several fountains, at least one huge children play area with the best quality slides, climbing area. Nearby you can find restaurants, zoo and Dolphinaurium.",
+          metalist: "Metalist Sports Complex",
+          "metalist-description":
+            "Metalist which includes the Metalist Stadium, is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.",
+          "gorky-park": "Gorky Park",
+          "gorky-park-description":
+            "Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite place for families. The Park has 9 amusement areas for all, which range from extreme sport to kids’ games, a Medieval area and French park, as well as a cable car and the largest Ferris Wheel in Ukraine.",
+          theatre:
+            "Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko",
+          "theatre-description":
+            "It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.",
+          university: "Kharkiv University or Karazin University",
+          "university-description":
+            "Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.",
+          "mirror-stream": "Mirror Stream",
+          "mirror-stream-description":
+            "The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.",
+          designed: "Designed by",
+          designer: "Nataly Visitskaya",
+          "source-code": "Open source code by",
+          developer: "Nataliya Krylova",
+        },
+        ua: {
+          "history-link": "Історія Харкова",
+          "about-link": "Про Харків",
+          title: "З Харкова з любов'ю",
+          temperature: "Температура",
+          "feels-temperature": "Відчувається як",
+          wind: "Швидкість вітру",
+          "wind-metric": "м/с",
+          humidity: "Вологість",
+          pressure: "Атмосферний тиск",
+          sunrise: "Схід сонця",
+          sunset: "Захід сонця",
+          "secondary-title": "Історія Харкова",
+          origini: "Истоки",
+          "block-1-1":
+            "Харків, також відомий як Харків (російський), є другим за величиною містом і муніципалітетом в Україні. Розташоване на північному сході країни, це найбільше місто історичного регіону Слобожанщина.",
+          "block-1-2":
+            "Харків є адміністративним центром Харківської області та прилеглого до неї Харківського району. Остання чисельність населення становить 1 433 886 осіб (2021 за східним часом)..",
+          "block-1-3":
+            "Харків був заснований в 1654 році як Харківська фортеця, і після цих скромних починань він перетворився на великий центр промисловості, торгівлі та української культури в Російській імперії. На початку 20 століття населення міста було переважно російським, але оскільки промислова експансія залучала додаткову робочу силу з важкої сільської місцевості, а радянський режим пом'якшував попередні обмеження на українське культурне самовираження, напередодні Другої світової війни значна частина населення була офіційно визначена як українська. З грудня 1919 по січень 1934 року Харків був першою столицею Української Радянської Соціалістичної Республіки.",
+          "early-history": "Рання історія",
+          "block-2-1":
+            "Зображення легендарного засновника Харитона або Харко (листівка періоду Російської імперії, близько 1890 - х років).",
+          "block-2-2":
+            "Найдавніші історичні згадки про цей регіон відносяться до поселення скіфів і сарматів у 2 столітті до нашої ери. Між 2-м і 6-м століттями нашої ери існують свідчення черняхівської культури, багатонаціональної суміші гето-дакійського, сарматського і готського населення. У 8-10 століттях Хозарська фортеця Верхнє Салтово стояла приблизно в 25 милях (40 км) на схід від сучасного міста, недалеко від Старого Салтова. Протягом 12 століття ця територія була частиною території Куманів, а потім з середини 13 століття монголо-татарської Золотої Орди.",
+          "block-2-3":
+            "На початку 17 століття ця територія була суперечливим прикордонним регіоном з населенням відступників, яке почало організовуватися в козацькі формування та громади, визначені загальною рішучістю протистояти як татарському рабству, так і польсько-литовському та російському кріпацтву. У середині століття повстання Хмельницького проти Речі Посполитої ознаменувалося короткочасним створенням незалежного козацького гетьманства.",
+          fortress: "Харківська фортеця",
+          "block-3-1":
+            "У 1654 році, в розпал цього періоду смути для Правобережної України, групи людей прийшли на береги річок Лопань і Харків, де вони відродили і зміцнили покинуте поселення. Існує народна етимологія, яка пов'язує назву як населеного пункту, так і річки з легендарним козацьким засновником на ім'я Харко (зменшувальна форма імені Харитон, Українська: Харитон, латинізована: Харитон, або Захарія, Українська: Захарій, латинізована: Захарій). Але назва річки засвідчена раніше, ніж заснування фортеці.",
+          "block-3-2":
+            "Поселення неохоче прийняло захист і владу російського воєводи з Чугуєва за 40 кілометрів (25 миль) на схід. Першим призначеним воєводою з Москви був воєвода Селіфонтово в 1656 році, який почав будувати місцевий острог (фортеця). У 1658 році новий воєвода Іван Офросимов наказав місцевим жителям цілувати хрест на знак вірності царю Олексію. На чолі зі своїм отаманом Іваном Кривошликом відмовилися. Однак з обранням нового отамана Тіміша Лавринова відносини, мабуть, налагодилися: московський цар задовольнив прохання громади (підписану настоятелями нового Успенського собору і парафіяльних церков Благовіщення і Трійці) про створення місцевого ринку.",
+          "block-3-3":
+            "На той час населення Харкова становило трохи більше 1000 осіб, половину з яких становили місцеві козаки. Селіфонтов привів з собою Московський гарнізон всього з 70 солдатів. Оборона покладалася на місцевий Слобідський козачий полк, який підпорядковувався загону наказ, військовому відомству, яким командували з Бєлгорода.",
+          empire: "В Російській імперії",
+          "block-4-1":
+            "Вид на Харків 19 століття, з дзвіницею Успенського собору, що підноситься над горизонтом. Адміністративні реформи призвели до того, що з 1708 року Харків управлявся з Києва, а з 1727 року - з Бєлгорода. У 1765 році Харків був заснований як резиденція окремої Слобідської Української губернії.",
+          "block-4-2":
+            "Харківський університет був заснований в 1805 році в палаці генерал-губернаторства. Олександр Миколайович Міцкевич, брат польського національного поета Адама Міцкевича, був професором права в університеті, тоді як інша знаменитість, Гете, шукав викладачів для школи. Одним з його пізніх випускників був Іван Франко, якому в 1906 році була присуджена докторська ступінь з російського мовознавства.",
+          "block-4-3":
+            "Вулиці в центрі міста вперше були вимощені бруківкою в 1830 році. У 1844 році поруч із першим Успенським собором (згодом перетвореним радянською владою на радіовежу) була побудована 90-метрова (300 футів) Олександрівська дзвіниця, присвячена перемозі над Наполеоном I у 1812 році. Система проточної води була створена в 1870 році.",
+          "block-4-4":
+            "Протягом 19 століття, незважаючи на переважання російськомовного населення, Харків став центром української культури. Перша українська газета була видана в місті в 1812 році. Незабаром після Кримської війни, в 1860-61 роках, в місті була створена громада, одне з мережі таємних товариств, які заклали основу для появи українського національного руху. Її найвидатнішим членом був філософ, лінгвіст і панславістський активіст Олександр Потебня. Членами студентської громади в місті були майбутні національні лідери Борис Мартос і Дмитро Антонович, і, на загальну думку, Вони були першими, хто використав гасло 'Слава Україні!'і його відповідь 'Слава на всій Землі!'.",
+          "block-4-5":
+            "Після Лютневої революції 1917 р.СДЛП була головною партією в першому українському уряді, Генеральному секретаріаті України. Центральна Рада (Центральна Рада) українських партій у Києві уповноважила Секретаріат вести переговори про національну автономію з Тимчасовим урядом Росії. У наступні місяці, у міру погіршення умов воєнного часу, УСДРП втратила підтримку в Харкові та інших місцях Української Соціалістичної революційної партії (СР), яка організовувалася як у селянських громадах, так і в незадоволених військових частинах.",
+          soviet: "Радянське місто",
+          "block-5-1":
+            "Будівля Держпрому в кінці 1920-х років. На виборах до Установчих зборів Росії, що відбулися в листопаді 1917 року, більшовики, які захопили владу в Петрограді і Москві, отримали всього 10,5 відсотка голосів в губернії, в порівнянні з 73 відсотками за блок російських і українських соціалістів-революціонерів. Командуючи голосами робітників, а не селян, в самому місті більшовики завоювали безліч.",
+          "block-5-2":
+            "Коли в Петрограді Ленінська Рада Народних Комісарів розпустила Установчі збори після його першого засідання, Центральна Рада в Києві проголосила незалежність Української Народної Республіки (УНР), більшовики вийшли зі складу Центральної Ради і сформували свою власну Раду (Національна рада) в Харкові. До лютого 1918 року їхні війська захопили більшу частину України.",
+          "block-5-3":
+            "Вони зробили Харків столицею Донецько-Криворізької Радянської Республіки. Через шість тижнів, згідно з умовами договору, узгодженого з Центральними державами в Брест-Литовську, вони залишили місто і передали територію окупованій німцями Українській державі.",
+          "block-5-4":
+            "У 1920-х роках Українська РСР заохочувала використання української мови, зобов'язавши її використовувати у всіх школах. На практиці частка середніх шкіл з викладанням українською мовою залишалася нижчою, ніж частка етнічних українців у населенні Харківської області. Політика українізації була звернена назад з судовим переслідуванням в Харкові в 1930 році Союзу за свободу України. Сотні представників української інтелігенції були заарештовані і депортовані.",
+          "block-5-5":
+            "У 1932 і 33 роках поєднання вилучень зерна і примусової колективізації селянських господарств створило умови голоду, Голодомору, який змусив людей покинути землю і відправитися до Харкова та інших міст у пошуках їжі. Свідчення очевидців із Заходу, в тому числі американського комуніста Фреда Біла, який працював на Харківському тракторному заводі, цитувалися в міжнародній пресі, але до епохи гласності в Радянському Союзі постійно засуджувалися як вигадки.",
+          "block-5-6":
+            "У 1934 році сотні українських письменників, інтелектуалів і діячів культури були заарештовані і страчені в спробі викорінити всі залишки українського націоналізму. Чистки тривали і в 1938 році. Сліпі українські вуличні музиканти Кобзарі також були схоплені в Харкові і вбиті співробітниками НКВС. Впевнений у своєму контролі над Україною, у січні 1934 року Сталін наказав перенести столицю Української РСР з Харкова до Києва.",
+          german: "Німецька окупація",
+          "block-6-1":
+            "Під час Другої світової війни Харків був центром великих битв. Місто було захоплене нацистською Німеччиною 24 жовтня 1941 року. Катастрофічний наступ Червоної Армії не зміг повернути місто в травні 1942 року. Він був відбитий (операція 'зірка') 16 лютого 1943 року, але знову втрачений німцями 15 березня 1943 року. 23 серпня 1943 року відбулося остаточне звільнення.",
+          "block-6-2":
+            "Пам'ятник 23 серпня 1943 року, закінченню німецької окупації під час Другої світової війни напередодні окупації довоєнне населення Харкова в 700 000 чоловік подвоїлося через приплив біженців. Те, що залишилося від довоєнного єврейського населення в 130 000 чоловік, було намічено німцями для 'особливого поводження': в період з грудня 1941 по січень 1942 року вони вбили і поховали приблизно 15 000 євреїв в яру за межами міста під назвою Дробицький яр. За 22 місяці окупації вони стратили ще 30 000 жителів, серед яких були підозрювані радянські партизани і, після короткого періоду терпимості, українські націоналісти. 80 000 людей померли від голоду, холоду та хвороб. 60 000 були примусово вивезені до Німеччини як рабовласники (Ostarbeiter). (Серед них був Борис Романченко. 96-річний чоловік, який пережив примусові роботи в концтаборах Бухенвальд, Пенемюнде, Дора і Берген-Бельзен, був убитий, коли 18 березня 2022 року в його житловому будинку сталася пожежа, влаштована росіянами).",
+          "block-6-3":
+            "На момент звільнення Харкова в серпні 1943 року населення, що вижило, скоротилося менш ніж до 200 000. Сімдесят відсотків міста було зруйновано.",
+          "post-war": "Після Другої світової війни",
+          "block-7-1":
+            "До окупації харківські танкові заводи були евакуйовані на Урал з усім своїм обладнанням і стали серцем танкових програм Червоної армії (зокрема, виробництво танка Т-34, раніше розробленого в Харкові). Ці підприємства повернулися до Харкова після війни і стали центральними елементами післявоєнного радянського військово-промислового комплексу.[61] Будинки та фабрики були відбудовані, а більша частина центру міста реконструйована у стилі сталінського класицизму.",
+          "block-7-2":
+            "В епоху Брежнєва Харків рекламувався як 'зразкове радянське місто'. Пропаганда широко використовувала його 'молодість', позначення, широко використовуване для позначення відносної відсутності в місті матеріальних і духовних реліквій дореволюційної епохи, і його прихильності новим рубежам радянської промисловості і науки. Успіхи міста в галузі машинобудування і збройового виробництва пояснювалися перспективним співробітництвом між його великими промисловими підприємствами і новими науково-дослідними інститутами і лабораторіями.",
+          independent: "Незалежна Україна",
+          "block-8-1":
+            "На референдумі 1 грудня 1991 року за актом проголошення незалежності при явці 76 відсотків 86 відсотків жителів Харківської області схвалили окрему українську державність.",
+          "block-8-2":
+            "Розпад Радянського Союзу зруйнував, але не розірвав зв'язки, які пов'язували підприємства Харківської важкої промисловості з інтегрованим радянським ринком і ланцюжками поставок, і не зменшив залежність від російської нафти, корисних копалин і газу. У Харкові та інших місцях на сході України обмежені перспективи залучення нових економічних партнерів на Заході і турбота про права російськомовних в новій національній державі в сукупності сприяли просуванню інтересів політичних партій і кандидатів, що підкреслюють взаєморозуміння і співпрацю з Російською Федерацією. У новому столітті вони були представлені Партією регіонів і президентськими амбіціями Віктора Януковича, які в Харкові здобули перемогу на виборах до міської ради 2006 року, на парламентських виборах 2007 року і на президентських виборах 2010 року.",
+          "block-8-3":
+            "Протести Євромайдану взимку 2013-2014 років проти тодішнього президента Віктора Януковича складалися з щоденних зібрань близько 200 протестувальників біля пам'ятника Тарасу Шевченку і носили переважно мирний характер. Розчарований явкою активіст Харківського університету припустив, що його однокурсники виявилися такою ж інертною, сірою і заляканою масою, як і харківські 'бюджетники' (ті, чиї доходи надходять з державного бюджету, в основному державні службовці). Але демонстрації прихильників Януковича, що проходили біля пам'ятника Леніну на площі Свободи, були настільки ж нечисленними.",
+          "block-8-4":
+            "Після подій Євромайдану і дій Росії в Криму і на Донбасі відносини з Москвою розірвалися, в Харківській області відбулося різке падіння виробництва і зайнятості. Колись центр транскордонної торгівлі, Харків був перетворений на прикордонну фортецю. Переорієнтація на нові міжнародні ринки, збільшення оборонних контрактів (після Києва в регіоні знаходиться друга за величиною кількість підприємств, пов'язаних з військовою сферою) і зростання експорту в секторі послуг економіки сприяли відновленню, але доходи населення не повернулися до рівнів, що існували до 2014 року.",
+          invasion: "Russian invasion 2022",
+          "block-9-1":
+            "Основна стаття: Битва За Харків (2022) під час російського вторгнення в Україну в 2022 році Харків був місцем важких боїв між українськими та російськими військами.[108] 27 лютого губернатор Харківської області Олег Синєгубов заявив, що російські війська були відкинуті від Харкова.",
+          "block-9-2":
+            "Згідно зі звітом агропорталу 24h від 28 Лютого 2022 року, Харківський тракторний завод (ХТЗ), розташований на південному сході міста, був зруйнований і 'охоплений вогнем' в результаті 'масованого обстрілу' з боку російських військ. На відео нібито зафіксовано вибухи та пожежу на заводі 25 та 27 лютого 2022 року. ЮНЕСКО підтвердила, що за перші три тижні бомбардувань в місті були втрачені або пошкоджені щонайменше 27 великих історичних будівель.",
+          "block-9-3":
+            "4 березня 2022 року Х'юман Райтс Вотч повідомила, що на четвертий день вторгнення Російської Федерації в Україну, 28 Лютого 2022 року, сили Федерації застосували касетні боєприпаси в ХТЗ, Московському та Шевченківському районах міста. Правозахисна група, яка відзначила 'спочатку невибірковий характер касетних боєприпасів та їх передбачуваний вплив на цивільне населення', базувала свою оцінку на інтерв'ю та аналізі 40 відео та фотографій. У березні 2022 року, під час битви за Харків, місто було оголошено містом-героєм України.",
+          "block-9-4":
+            "У травні 2022 року українські війська розпочали контрнаступ, щоб відтіснити російські війська від міста до міжнародного кордону. До 12 травня Міністерство оборони Сполученого Королівства повідомило, що Росія вивела підрозділи з району Харкова. Російська артилерія і ракети залишаються в межах досяжності міста, і він продовжує піддаватися обстрілам і ракетним ударам.",
+          liberation: "Визволення Харкова",
+          "block-10-1":
+            "У вівторок, 13 вересня, Україна зміцнила свій контроль над Харківською областю у вівторок, піднявши прапори над містами і селами, окупованими російськими військами протягом шести місяців, і повернувши райони, захоплені Москвою в перший день вторгнення Володимира Путіна.",
+          "block-10-2":
+            "Державна прикордонна служба в Києві заявила, що звільнила місто Вовчанськ, розташоване в парі кілометрів від міжнародного кордону. Російські солдати пішли в неділю, додала вона, після приголомшливого українського контрнаступу.",
+          "block-10-3":
+            "Протягом декількох днів Україна витіснила росіян з території площею понад 6000 кв. км, включаючи зони на півдні країни, де триває окремий контрнаступ з метою повернути місто Херсон.",
+          places: "Tуристичнi пам'ятки",
+          "freedom-square": "Площа Свободи в Харкові",
+          "freedom-square-description":
+            "Головною і досить неймовірною пам'яткою міста є Площа Свободи (Ploshcha Svobody), одна з найбільших площ у світі площею понад 12 гектарів, на якій проводяться урочисті військові паради, а також концерти та культурні та політичні заходи. Площу оточують численні парки, жваві вулиці, мальовничі фонтани і різні мальовничі кафе-бари під відкритим небом.",
+          zoo: "Харківський зоопарк",
+          "zoo-description":
+            "Харківський зоопарк-це державний зоологічний парк в Харкові. Харківський зоопарк-найстаріший зоопарк в Україні, він був заснований в 1896 році. Він розташований в самому центрі міста поруч з парком Шевченка. Зоопарк займає територію в 22 гектари, де знайшли свій будинок 6810 тварин 385 видів. Серед них 103 види вважаються рідкісними і знаходяться під охороною. Багато з них добре розмножуються в домашній обстановці Харківського зоопарку.",
+          strelka: "Садова площа Cтрілка",
+          "strelka-description":
+            "Сквер Стрілка розташований в місці злиття річок Харків і Лопань, звідки, за легендою, почав своє походження місто Харків. Сквер Стрілка - одне з найпопулярніших місць відпочинку серед харків'ян.Тут багато дерев, які створюють приємну тінь і відгороджують від шуму великого міста.",
+          "assumption-cathedral": "Успенський кафедральний собор",
+          "assumption-cathedral-description":
+            "Розташована на пагорбі над берегами річки Лопань, це найстаріша православна церква в Україні. Дуже висока дзвіниця була побудована на честь Олександра I, щоб відсвяткувати його перемогу над армією Наполеона Бонапарта. Внутрішня частина дуже багато прикрашена, надзвичайно велика і дуже ефектна - типовий приклад православних культових споруд.",
+          "annunciation-cathedral": "Благовіщенський собор",
+          "annunciation-cathedral-description":
+            "Гарний неовізантійський стиль з п'ятьма куполами та характерною 80-метровою дзвіницею. Усередині цієї величезної будівлі, що вміщає до 4000 чоловік, можна знайти чудові фрески. Він був побудований між 1889 і 1901 роками місцевим архітектором Михайлом Ловцовим.",
+          "shevchenko-park": "Парк Шевченка",
+          "shevchenko-park-description":
+            "Парк Шевченка є центральним районом Харкова і містить безліч пам'яток, що потопають у зелені і великих квіткових площах. У парку є величезні старі дерева, висаджені понад 500 років тому, і вони захищені Кованими залізними огорожами з датою їх посадки. Він великий, з кількома фонтанами, принаймні одним величезним дитячим майданчиком з найякіснішими гірками, майданчиком для скелелазіння. Поблизу Ви можете знайти ресторани, зоопарк і дельфінарій.",
+          metalist: "Спортивний комплекс Mеталіст",
+          "metalist-description":
+            "'Металіст', який включає в себе стадіон 'Металіст', є багатофункціональним стадіоном в Харкові, Україна. Він використовується в основному для футбольних матчів і є домашнім стадіоном харківського ФК 'Металіст 1925'. Стадіон, який був місцем проведення Євро-2012, наразі вміщує 40 003 глядачів.",
+          "gorky-park": "Парк Горького",
+          "gorky-park-description":
+            "Не пропустіть відвідування Центрального парку культури і відпочинку імені Горького, улюбленого місця сімейного відпочинку. У парку є 9 розважальних зон для всіх, які варіюються від екстремальних видів спорту до дитячих ігор, середньовічна зона і французький парк, а також Канатна дорога і найбільше колесо огляду в Україні.",
+          theatre:
+            "Харківський державний академічний театр опери та балету імені М. Лисенка",
+          "theatre-description":
+            "Це перший академічний театр в Україні. Цей один з провідних українських театрів був відкритий в 1925 році. У 2007 році перед театром були побудовані красиві фонтани, які швидко стали дуже популярними. Репертуар включає близько 50 опер і балетів, більшість з яких українські та російські, але є й італійські.",
+          university: "Харківський університет iм. Каразіна",
+          "university-description":
+            "Харківський національний університет імені В. Н.Каразіна (Укр: Харківський національний університет імені В. Н. Каразіна) - один з найбільших вузів України, і раніше в Російській імперії та СРСР. Він був заснований в 1804 році зусиллями Василя Каразіна і став другим найстарішим університетом в сучасній Україні.",
+          "mirror-stream": "Дзеркальнa струя",
+          "mirror-stream-description":
+            "Дзеркальний потік-фонтан в Харкові, Україна. Природний фонтан був виявлений в 1947 році.Фонтан знаходиться поруч з Харківською філармонією. Він був побудований в 1947 році. Він залишається одним з найбільш чудових архітектурних пам'яток Харкова і, завдяки цьому, внесений до Енциклопедії ЮНЕСКО.",
+          designed: "Дизайн",
+          designer: "Наталія Висицька",
+          "source-code": "Відкритий вихідний код",
+          developer: "розробник Наталія Крилова",
+        },
+      };
 
-const languageBtnWrapper = document.querySelector(".language-buttons-wrapper");
-const languageButtons = document.querySelectorAll(".language-btn");
-const translationText = document.querySelectorAll("[data-translate");
-languageBtnWrapper.addEventListener("click", function (event) {
-  if (event.target.classList.contains("language-btn")) {
-    languageButtons.forEach((btn) => {
-      btn.classList.remove("current-language");
-    });
-    event.target.classList.add("current-language");
-    let language = event.target.getAttribute("data-language");
+      const languageBtnWrapper = document.querySelector(
+        ".language-buttons-wrapper"
+      );
+      const languageButtons = document.querySelectorAll(".language-btn");
+      const translationText = document.querySelectorAll("[data-translate");
+      languageBtnWrapper.addEventListener("click", function (event) {
+        if (event.target.classList.contains("language-btn")) {
+          languageButtons.forEach((btn) => {
+            btn.classList.remove("current-language");
+          });
+          event.target.classList.add("current-language");
+          let language = event.target.getAttribute("data-language");
 
-    translationText.forEach((text) => {
-      let dataText = text.getAttribute("data-translate");
-      text.textContent = translationObj[language][dataText];
-    });
-    if (language === "ua") {
-      lang = "ua";
-    }
-  }
-});
-
-
+          translationText.forEach((text) => {
+            let dataText = text.getAttribute("data-translate");
+            text.textContent = translationObj[language][dataText];
+          });
+          if (language === "ua") {
+            lang = "ua";
+          }
+        }
+      });
     </script>
   </body>
 </html>
