@@ -11,201 +11,249 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
       * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background-color: rgb(190, 242, 242);
-        color: rgb(6 6 6);
-        font-family: 'Roboto', sans-serif;
-      }
-      .container {
-        max-width: 100%;
-                margin: 0 auto;
-        position: relative;
-        padding: 10px 20px;
-      }
-      a {
-        text-decoration:  none;
-        cursor: pointer;
-        transition: 0.4s;
-        color: inherit;
-        padding: 10px;
-      }
-      ul {
-        list-style: none;
-      }
-      section {
-        margin-bottom: 20px;
-      }
-      .header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(220, 237, 251, 0.1);
-        z-index: 1;
-      }
-      .header-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 50px;
-      }
-      .logo {
-        width: 70px;
-        height: 70px;
-        background-image: url('https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png');
-        background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-      }
-      .header-menu {
-         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 40px;
-      }
-            .language-buttons-wrapper {
-              width: 90px;
-              display: flex;
-              justify-content: space-between;
-            }
-      .language-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        background-color: #30a3f5;
-      }
-      .current-language {
-        background-color: yellow;
-      }
-      .header-link {
-        display: block;
-      }
-      .first-screen {
-        position: relative;
-        height: 700px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        transition: background-image 0.6s ease-in-out;
-      }
-      .first-screen .container {
-        padding: 10px 0;
-        height: 100%;
-      }
-      h1 {
-        width: fit-content;
-        background-color: rgba(220, 237, 251, 0.7);
-        font-family: 'Pacifico', cursive;
-        font-weight: 400;
-        font-size: 50px;
-        text-align: center;
-        margin: 70px auto 0;
-        color: rgb(88 83 83);
-        padding: 0 20px;
-        border-radius: 15px;
-      }
-           .date-time-block {
-        position: absolute;
-        background-color: rgba(220, 237, 251, 0.7);
-        padding: 10px 20px;
-        border-radius: 10px;
-        top: 170px;
-        left: 20px;
-        text-align: center;
-      }
-      .weather-block {
-        position: absolute;
-        top: 170px;
-        right: 20px;
-        background-color: rgba(220, 237, 251, 0.7);
-        padding: 10px;
-        border-radius: 10px 20px;
-        text-align: center;
-      }
-      .weather-description {
-        text-align: center;
-      }
-      .week-forecast {
-        max-width: 100%;
-        position: absolute;
-        bottom: 40px;
-        right: 20px;
-              display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        background-color: rgba(220, 237, 251, 0.7);
-        padding: 10px;
-        border-radius: 10px;
-      }
-      .day-forecast {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      #history {
-        position: relative;
-        display: flex;
-      }
-      #history .container {
-        width: 70%;
-      }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(190, 242, 242);
+  color: rgb(6 6 6);
+  font-family: "Roboto", sans-serif;
+}
+.war {
+  background-color: rgb(104 40 40);
+  color: white;
+}
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding: 10px 20px;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.4s;
+  color: inherit;
+  padding: 10px;
+}
+ul {
+  list-style: none;
+}
+section {
+  margin-bottom: 20px;
+}
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(220, 237, 251, 0.1);
+  z-index: 1;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.logo {
+  width: 70px;
+  height: 70px;
+  background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/kharkiv-emblem.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.time-buttons-wrapper {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.time-btn {
+  width: 120px;
+  padding: 10px 5px;
+  background-color: #30a3f5;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+}
+body.war .time-btn {
+  background-color: rgb(217 61 25 / 70%);
+}
+button:focus {
+  outline: none;
+}
+.language-buttons-wrapper {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+.language-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #444343;
+  border: none;
+  cursor: pointer;
+  background-color: #30a3f5;
+}
+.current-language {
+  background-color: yellow;
+}
+.header-link {
+  display: block;
+  transition: 0.4s;
+}
+.header-link:hover {
+  text-decoration: underline;
+}
+.main {
+  padding-bottom: 40px;
+}
+.first-screen {
+  position: relative;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.6s ease-in-out;
+}
+.first-screen .container {
+  padding: 10px 0;
+  height: 100%;
+}
+h1 {
+  width: fit-content;
+  background-color: rgba(220, 237, 251, 0.7);
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 50px;
+  text-align: center;
+  margin: 70px auto 0;
+  color: rgb(88 83 83);
+  padding: 0 20px;
+  border-radius: 15px;
+}
+.date-time-block {
+  position: absolute;
+  background-color: rgba(220, 237, 251, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+  top: 170px;
+  left: 20px;
+  text-align: center;
+}
+.weather-block {
+  position: absolute;
+  top: 170px;
+  right: 20px;
+  background-color: rgba(220, 237, 251, 0.7);
+  padding: 10px;
+  border-radius: 10px 20px;
+  text-align: center;
+}
+.weather-description {
+  text-align: center;
+}
+.week-forecast {
+  max-width: 100%;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: rgba(220, 237, 251, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+}
+.day-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      .history-block {
-        margin-bottom: 20px;
-        overflow: hidden;
-      }
-      .section-title {
-        margin-bottom: 20px;
-font-weight: 500;
-margin-left: 40px;
-      }
-      .history-title {
-        margin-bottom: 10px;
-        font-weight: 500;
-        cursor: pointer;
-        margin-left: 40px;
-              }
-              .history-description-wrapper {
-                overflow: hidden;
-              }
-              .history-description {
-                                transition: transform 0.4s;
-              }
-      .hidden {
-        display: none;
-        transform: translateY(-100%);
-      }
-      aside {
-        width: 30%;
-        background-image: url('https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/ukraine-emblem.png');
-        background-repeat: no-repeat;
-        background-position-y: 100px;
-        background-size: contain;
-      }
-      .secondary-slider-wrapper {
-        width: 800px;
-        height: 400px;
-        margin: 0 auto;
-        overflow: hidden;
-        display: flex;
-      }
-      .sidebar {
-       height: fit-content;
+body.war .date-time-block,
+body.war .weather-block,
+body.war .week-forecast {
+  background-color: rgb(217 61 25 / 70%);
+}
+#history {
+  position: relative;
+  display: flex;
+}
+#history .container {
+  width: 70%;
+}
+
+.history-block {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.section-title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  margin-left: 40px;
+}
+.history-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 40px;
+}
+.history-description-wrapper {
+  overflow: hidden;
+}
+.history-description {
+  transition: transform 0.4s;
+}
+.hidden {
+  display: none;
+  transform: translateY(-100%);
+}
+aside {
+  width: 30%;
+  background-image: url("https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/ukraine-emblem.png");
+  background-repeat: no-repeat;
+  background-position-y: 100px;
+  background-size: contain;
+}
+#about .section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.secondary-slider-wrapper {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+}
+.sidebar {
+  height: fit-content;
   width: 35%;
   position: relative;
   top: -2000px;
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   transition: transform 0.5s ease-in-out;
-  background-color: aliceblue;
+  background-color: #cef5f3;
+}
+
+body.war .sidebar {
+  background-color: #6a1c05;
 }
 
 .sidebar > div {
@@ -218,13 +266,10 @@ margin-left: 40px;
 .sidebar h4 {
   font-weight: 400;
   margin-bottom: 20px;
-  }
+}
 
 .main-slide {
   height: fit-content;
- /*  position: absolute;
-  top: 0;
-  left: 35%; */
   width: 65%;
   transition: transform 0.5s ease-in-out;
 }
@@ -237,69 +282,56 @@ margin-left: 40px;
   width: 100%;
 }
 
-button {
-  background-color: #fff;
-  border: none;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 15px;
-}
-
-button:hover {
-  color: #222;
-}
-
-button:focus {
-  outline: none;
-}
-
 .controls button {
   position: absolute;
   left: 35%;
   top: 50%;
   z-index: 100;
   font-size: 22px;
+  color: #444343;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .controls .down-button {
-  transform: translate(85px, -175px);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  transform: translate(85px, -120px);
 }
 
 .controls .up-button {
   transform: translate(85px, 120px);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
-      .footer .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 40px;
-      }
-              .city-links {
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 30px;
-              }
-      .city-link {
-        display: block;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: rgba(61, 59, 59, 0.481);
-      }
-      .creators-links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
+.footer .container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 15px;
+}
+.city-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.city-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(61, 59, 59, 0.481);
+}
+.creators-item {
+  width: fit-content;
+}
+.creators-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .creators-link {
-padding: 10px 0;
+  padding: 10px 0;
 }
+
     </style>
   </head>
   <body>
@@ -535,119 +567,126 @@ In the space of a few days Ukraine has pushed the Russians out from more than 6,
 
        </aside>
       </section>
+
+
+
+
+
+
+
+
       <section id="about">
         <div class="container">
+          <h2 class="section-title" data-translate="places">Places of Interest</h2>
         <div class="secondary-slider-wrapper">
            <div class="sidebar">
         <div>
-          <h4>The Freedom Square in Kharkiv</h4>
-          <p>
+          <h4 data-translate="freedom-square">The Freedom Square in Kharkiv</h4>
+          <p data-translate="freedom-square-description">
 The city’s principal and rather incredible landmark is Freedom Square (Ploshcha Svobody), one of the largest squares in the world with an area of over 12 hectares, which holds solemn military parades as well as concerts and cultural and political events. Surrounding the square are numerous parks, bustling streets, scenic fountains and various picturesque open-air coffee bars.</p>
         </div>
         <div>
-          <h4>Kharkiv Zoo</h4>
-          <p>The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkov Zoo. </p>
+          <h4 data-translate="zoo">Kharkiv Zoo</h4>
+          <p data-translate="zoo-description">The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkiv Zoo. </p>
         </div>
         <div>
-          <h4>Strelka Garden Square</h4>
-          <p>
+          <h4 data-translate="strelka">Strelka Garden Square</h4>
+          <p data-translate="strelka-description">
 Strelka garden square is located in the confluence of the Kharkiv and Lopan rivers, from where, according to legend, the city of Kharkov began its origin.
-Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.
-
-In the territory of the "Strelka", there are two boat stations.</p>
+Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.</p>
         </div>
         <div>
-          <h4>Assumption of Dormition Cathedral</h4>
-          <p>
+          <h4 data-translate="assumption-cathedral">Assumption of Dormition Cathedral</h4>
+          <p data-translate="assumption-cathedral-description">
 Situated on a hill above the banks of the River Lopan, this is the oldest Orthodox church in Ukraine. The very high bell tower was built in honour of Alexander I to celebrate its victory against the army of Napoleon Bonaparte. The inside is very ornate, extremely large and very striking - a typical example of Orthodox places of worship.</p>
         </div>
         <div>
-          <h4>Annuciation Cathedral</h4>
-          <p>
+          <h4 data-translate="annunciation-cathedral">Annuciation Cathedral</h4>
+          <p data-translate="annunciation-cathedral-description">
 A beautiful neo-Byzantine style with five domes and a characteristic bell tower of 80 metres. Superb frescoes can be found inside this vast building, which holds up to 4,000 people. It was built between 1889 and 1901 by the local architect Mikhail Lovtsov. </p>
         </div>
         <div>
-          <h4>Shevchenko Park</h4>
-          <p>
+          <h4 data-translate="shevchenko-park">Shevchenko Park</h4>
+          <p data-translate="shevchenko-park-description">
             Shevchenko park is the central area of Kharkiv and holds many attractions, full of green and vast areas of flowers. The park has huge old trees planted over 500 years ago and they are protect by wrought iron fences with the date they were planted. It’s large with several fountains, at least one huge children play area with the best quality slides, climbing area. Nearby you can find restaurants, zoo and Dolphinaurium.
           </p>
         </div>
         <div>
-          <h4>Metalist Sports Complex</h4>
-          <p>Metalist which includes the Metalist Stadium (Ukrainian: Стадіон "Металіст"), is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.</p>
+          <h4 data-translate="metalist">Metalist Sports Complex</h4>
+          <p data-translate="metalist-description">Metalist which includes the Metalist Stadium (Ukrainian: Стадіон "Металіст"), is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.</p>
         </div>
         <div>
-          <h4>Gorky Park</h4>
-          <p>
+          <h4 data-translate="gorky-park">Gorky Park</h4>
+          <p data-translate="gorky-park-description">
 Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite place for families. The Park has 9 amusement areas for all, which range from extreme sport to kids’ games, a Medieval area and French park, as well as a cable car and the largest Ferris Wheel in Ukraine.</p>
         </div>
         <div>
-          <h4>Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko</h4>
-          <p>It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.</p>
+          <h4 data-translate="theatre">Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko</h4>
+          <p data-translate="theatre-description">It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.</p>
         </div>
         <div>
-          <h4>Kharkiv University or Karazin University</h4>
-          <p>Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.</p>
+          <h4 data-translate="university">Kharkiv University or Karazin University</h4>
+          <p data-translate="university-description">Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.</p>
         </div>
         <div>
-          <h4>Mirror Stream</h4>
-          <p>The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.</p>
+          <h4 data-translate="mirror-stream">Mirror Stream</h4>
+          <p data-translate="mirror-stream-description">The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.</p>
         </div>
       </div>
       <div class="main-slide">
         <div
           style="
-            background-image: url('places/1.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/1.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/2.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/2.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/3.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/3.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/4.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/4.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/5.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/5.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/6.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/6.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/7.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/7.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/8.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/8.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/9.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/9.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/10.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/10.jpg?raw=true');
           "
         ></div>
         <div
           style="
-            background-image: url('places/11.jpg');
+            background-image: url('https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/places/11.jpg?raw=true');
           "
         ></div>
       </div>
@@ -663,19 +702,6 @@ Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite p
     </main>
     <footer class="footer">
       <div class="container">
-        <ul class="city-links">
-          <li class="city-item">
-            <a href="" class="city-link"></a>
-          </li>
-          <li class="city-item">
-            <a href="" class="city-link"></a>
-          </li>
-          <li class="city-item">
-            <a href="" class="city-link"></a>
-          </li>
-          <li class="city-item"></li>
-          <li class="city-item"></li>
-        </ul>
         <ul class="creators-links">
           <li class="creators-item">
             <span data-translate="designed">Designed by </span><a href="" class="creators-link" target="_blank"> <span data-translate="designer">Nataly Visitskaya</span></a>
@@ -688,10 +714,97 @@ Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite p
     </footer>
 
     <script>
-      const firstScreenSection = document.querySelector('.first-screen');
-      const DATE = document.querySelector('.date');
-      const TIME = document.querySelector('.time');
-      const currentTemperature = document.querySelector(".current-temperature");
+
+      /*---------------------------set first screen background----------------------*/
+
+const firstScreenSection = document.querySelector(".first-screen");
+let count = 1;
+window.addEventListener("DOMContentLoaded", setSliderLoop);
+
+function setSliderLoop() {
+  //setTimeout(setSliderLoop(), 3500);
+  count++;
+  if (count > 22) {
+    count = 1;
+  }
+  console.log(count);
+  firstScreenSection.style.backgroundImage = `url("https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true")`;
+}
+
+setSliderLoop();
+
+/*--------------------vertical slider------------------------*/
+
+const upBtn = document.querySelector(".up-button");
+const downBtn = document.querySelector(".down-button");
+const sidebar = document.querySelector(".sidebar");
+const mainSlide = document.querySelector(".main-slide");
+const slideCount = mainSlide.querySelectorAll("div").length;
+const container = document.querySelector(".container");
+const body = document.querySelector("body");
+let activeSlideIndex = 0;
+
+sidebar.style.top = `-${(slideCount - 1) * 400}px`;
+if (body.offsetWidth <= 440) {
+  sidebar.style.top = "";
+  sidebar.style.left = `-${(slideCount - 1) * 400}px`;
+}
+window.addEventListener("resize", () => {});
+
+upBtn.addEventListener("click", () => {
+  changeSlide("up");
+});
+
+downBtn.addEventListener("click", () => {
+  changeSlide("down");
+});
+
+function changeSlide(direction) {
+  if (direction === "up") {
+    activeSlideIndex++;
+    console.log(activeSlideIndex);
+    if (activeSlideIndex >= slideCount) {
+      activeSlideIndex = 0;
+    }
+  } else {
+    activeSlideIndex--;
+    if (activeSlideIndex <= 0) {
+      activeSlideIndex = slideCount - 1;
+    }
+  }
+
+  const height = container.clientHeight;
+  const width = container.clientWidth;
+
+  if (body.offsetWidth > 440) {
+    mainSlide.style.transform = `translateY(-${activeSlideIndex * 400}px)`;
+    sidebar.style.transform = `translateY(${activeSlideIndex * 400}px)`;
+  } else if (body.offsetWidth <= 440) {
+    mainSlide.style.transform = `translateX(-${activeSlideIndex * width}px)`;
+    sidebar.style.transform = `translateX(${activeSlideIndex * width}px)`;
+  }
+}
+
+document.addEventListener("keydown", function (event) {
+  if (body.offsetWidth > 440) {
+    if (event.key === "ArrowUp") {
+      changeSlide("up");
+    } else if (event.key === "ArrowDown") {
+      changeSlide("down");
+    }
+  } else if (body.offsetWidth <= 440) {
+    if (event.key === "ArrowLeft") {
+      changeSlide("up");
+    } else if (event.key === "ArrowRight") {
+      changeSlide("down");
+    }
+  }
+});
+
+
+const DATE = document.querySelector(".date");
+const TIME = document.querySelector(".time");
+const currentTemperature = document.querySelector(".current-temperature");
 const currentFeelTemperature = document.querySelector(
   ".current-feel-temperature"
 );
@@ -704,39 +817,12 @@ const currentHumidity = document.querySelector(".current-humidity");
 const currentPressure = document.querySelector(".current-pressure");
 const currentSunrise = document.querySelector(".sunrise");
 const currentSunset = document.querySelector(".sunset");
-const weatherIcon = document.querySelector('.weather-icon');
-const historyTitles = document.querySelectorAll('.history-title');
-const historyDescriptions = document.querySelectorAll('.history-description');
-
-
+const weatherIcon = document.querySelector(".weather-icon");
+const historyTitles = document.querySelectorAll(".history-title");
+const historyDescriptions = document.querySelectorAll(".history-description");
 
 let apiKey = "5c08670149a0b1a4dc7a372a3d5e5333";
 let units = "metric";
-
-/*---------------------------set first screen background----------------------*/
-let count = 1;
-
-firstScreenSection.style.backgroundImage = `url(https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/14.jpg)`;
-
-//`url("https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true")`;
-
-
-function setSliderLoop() {
-  setTimeout(setSliderLoop, 3500);
-  count++;
-  if (count > 22) {
-    count = 1;
-  }
-  firstScreenSection.style.backgroundImage = `url("https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/${count}.jpg?raw=true")`;
-  //https://raw.githubusercontent.com/NataliItaly/Kharkiv-city-photos/master/kharkiv-images/14.jpg
-  //https://github.com/NataliItaly/Kharkiv-city-photos/blob/master/kharkiv-images/1.jpg?raw=true
-}
-
-setSliderLoop();
-
-
-/* firstScreenSection.style.backgroundSize = 'cover';
-firstScreenSection.style.backgroundRepeat = 'no-repeat'; */
 
 /*-----------------------------set date and time---------------------------*/
 
@@ -749,7 +835,15 @@ const weekDays = [
   "Friday",
   "Saturday",
 ];
-const weekDaysUa = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"]
+const weekDaysUa = [
+  "Неділя",
+  "Понеділок",
+  "Вівторок",
+  "Середа",
+  "Четвер",
+  "П'ятниця",
+  "Субота",
+];
 const months = [
   "January",
   "February",
@@ -764,15 +858,28 @@ const months = [
   "November",
   "December",
 ];
-const monthsUa = ["Січень", "Лютий", "Березень",	"Квітень",	"Травень",	"Червень", "Липень",	"Серпень", "Вересень", "Жовтень",	"Листопад",	"Грудень"];
+const monthsUa = [
+  "Січень",
+  "Лютий",
+  "Березень",
+  "Квітень",
+  "Травень",
+  "Червень",
+  "Липень",
+  "Серпень",
+  "Вересень",
+  "Жовтень",
+  "Листопад",
+  "Грудень",
+];
 
-let currentLanguageBtn = document.querySelector('.current-language');
+let currentLanguageBtn = document.querySelector(".current-language");
 
 function setZero(num) {
-  return num > 10 ? num : '0' + num;
+  return num >= 9 ? num : "0" + num;
 }
 
-      function showTime() {
+function showTime() {
   const now = new Date();
   const hours = setZero(now.getHours());
   const minutes = setZero(now.getMinutes());
@@ -781,10 +888,10 @@ function setZero(num) {
   const year = now.getFullYear();
   let day;
   let month;
-        let currentLan = document.querySelector('.current-language');
-        if (currentLan.dataset === 'ua') console.log('?')
-      day = weekDays[now.getDay()];
-    month = months[now.getMonth()];
+  let currentLan = document.querySelector(".current-language");
+  if (currentLan.dataset === "ua") console.log("?");
+  day = weekDays[now.getDay()];
+  month = months[now.getMonth()];
 
   DATE.innerHTML = `${day}, <br> ${month} ${date}, ${year}`;
   TIME.textContent = `${hours}.${minutes}.${seconds}`;
@@ -795,7 +902,7 @@ showTime();
 
 /*-------------------------set weather-------------------------*/
 
-let lang = 'en';
+let lang = "en";
 function getForecast(coordinates) {
   const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&lang=${lang}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -829,10 +936,9 @@ function formatDay(timeSpamp) {
   let date = new Date(timeSpamp * 1000);
   let day = date.getDay();
 
-  if (currentLanguageBtn.getAttribute('data-language') === 'ua') {
+  if (currentLanguageBtn.getAttribute("data-language") === "ua") {
     return weekDaysUa[day];
-  }
-  else {
+  } else {
     return weekDays[day];
   }
 }
@@ -861,7 +967,8 @@ function showWeather(response) {
   let sunrise = response.data.sys.sunrise;
   let sunset = response.data.sys.sunset;
   currentTemperature.textContent = temperature;
-  currentWeatherDescription.textContent = weatherDesc[0].toUpperCase() + weatherDesc.slice(1);
+  currentWeatherDescription.textContent =
+    weatherDesc[0].toUpperCase() + weatherDesc.slice(1);
   currentFeelTemperature.textContent = feelTemperature;
   currentHumidity.textContent = humidity;
   currentWind.textContent = wind;
@@ -874,19 +981,12 @@ function showWeather(response) {
 /*-----------------set functionality to history section----------------*/
 
 for (let i = 0; i < historyTitles.length; i++) {
-  historyTitles[i].addEventListener('click', function() {
-  historyDescriptions[i].classList.toggle('hidden');
-  //historyDescriptions[i].style.transform = 'translateY(0%)';
+  historyTitles[i].addEventListener("click", function () {
+    historyDescriptions[i].classList.toggle("hidden");
   });
 }
 
 /*-----------------------------translation-----------------------------*/
-
-
-
-
-
-
 
 const translationObj = {
   en: {
@@ -984,6 +1084,29 @@ const translationObj = {
       "The state border service in Kyiv said it had liberated the city of Vovchansk, a couple of kilometres from the international border. Russian soldiers left on Sunday, it added, after the stunning Ukrainian counter-offensive.",
     "block-10-3":
       "In the space of a few days Ukraine has pushed the Russians out from more than 6,000 sq km of territory, including zones in the south of the country where a separate counter-offensive is ongoing to recapture the city of Kherson.",
+    places: "Places of Interest",
+    "freedom-square": "The Freedom Square in Kharkiv",
+    "freedom-square-description": "The city’s principal and rather incredible landmark is Freedom Square (Ploshcha Svobody), one of the largest squares in the world with an area of over 12 hectares, which holds solemn military parades as well as concerts and cultural and political events. Surrounding the square are numerous parks, bustling streets, scenic fountains and various picturesque open-air coffee bars.",
+    "zoo": "Kharkiv Zoo",
+    "zoo-description": "The Kharkiv Zoo is the state zoological park in Kharkov. Kharkov Zoo is the oldest zoo in Ukraine, it was founded in 1896. It is located in the heart of the city next to the Park Shevchenko. The Zoo occupies the territory of 22 hectares, where 6810 animals of 385 species found their home. Among them 103 species are considered as rare and are under protection. Many of them breed well in the homely setting of Kharkiv Zoo.",
+    strelka: "Strelka Garden Square",
+    "strelka-description": "Strelka garden square is located in the confluence of the Kharkiv and Lopan rivers, from where, according to legend, the city of Kharkov began its origin. Strelka garden square is one of the most popular holiday destinations among Kharkiv inhabitants.There are numerous trees that create a pleasant shade and fence off the noise of a big city.",
+    "assumption-cathedral": "Assumption of Dormition Cathedral",
+    "assumption-cathedral-description": "Situated on a hill above the banks of the River Lopan, this is the oldest Orthodox church in Ukraine. The very high bell tower was built in honour of Alexander I to celebrate its victory against the army of Napoleon Bonaparte. The inside is very ornate, extremely large and very striking - a typical example of Orthodox places of worship.",
+    "annunciation-cathedral": "Annuciation Cathedral",
+    "annunciation-cathedral-description": "A beautiful neo-Byzantine style with five domes and a characteristic bell tower of 80 metres. Superb frescoes can be found inside this vast building, which holds up to 4,000 people. It was built between 1889 and 1901 by the local architect Mikhail Lovtsov.",
+    "shevchenko-park": "Shevchenko Park",
+    "shevchenko-park-description": "Shevchenko park is the central area of Kharkiv and holds many attractions, full of green and vast areas of flowers. The park has huge old trees planted over 500 years ago and they are protect by wrought iron fences with the date they were planted. It’s large with several fountains, at least one huge children play area with the best quality slides, climbing area. Nearby you can find restaurants, zoo and Dolphinaurium.",
+    metalist: "Metalist Sports Complex",
+    "metalist-description": "Metalist which includes the Metalist Stadium, is a multi-use stadium in Kharkiv, Ukraine. It is used chiefly for football matches and is the home stadium of FC Metalist 1925 Kharkiv. The stadium, which was a venue for Euro 2012, currently seats 40,003 spectators.",
+    "gorky-park": "Gorky Park",
+    "gorky-park-description": "Don’t miss a visit to Gorky Central Park of Culture and Leisure, a favourite place for families. The Park has 9 amusement areas for all, which range from extreme sport to kids’ games, a Medieval area and French park, as well as a cable car and the largest Ferris Wheel in Ukraine.",
+    theatre: "Kharkiv State Academic Opera and Ballet Theatre named after M.Lysenko",
+    "theatre-description": "It's the first academic theatre in Ukraine. This one of the leading Ukrainian theatres was opened in 1925. In 2007 in front of the theatre were constructed beautiful fountains which quickly became very popular. The repertoire includes around 50 operas and ballets, the majority of which are Ukrainian and Russian but there are also Italian ones.",
+    university: "Kharkiv University or Karazin University",
+    "university-description": "Karazin Kharkiv National University (Ukrainian: Харківський національний університет імені В. Н. Каразіна), is one of the major universities in Ukraine, and earlier in the Russian Empire and Soviet Union. It was founded in 1804 through the efforts of Vasily Karazin becoming the second oldest university in modern-day Ukraine.",
+    "mirror-stream": "Mirror Stream",
+    "mirror-stream-description": "The Mirror Stream is a fountain in Kharkiv, Ukraine. The natural fountain was discovered in 1947.The fountain is near the Kharkiv Philharmonic. It was built in 1947. It remains one of the most remarkable architectural monuments in Kharkiv and, due to that, has been listed in UNESCO's Encyclopedia.",
     designed: "Designed by",
     designer: "Nataly Visitskaya",
     "source-code": "Open source code by",
@@ -1084,7 +1207,30 @@ const translationObj = {
       "Державна прикордонна служба в Києві заявила, що звільнила місто Вовчанськ, розташоване в парі кілометрів від міжнародного кордону. Російські солдати пішли в неділю, додала вона, після приголомшливого українського контрнаступу.",
     "block-10-3":
       "Протягом декількох днів Україна витіснила росіян з території площею понад 6000 кв. км, включаючи зони на півдні країни, де триває окремий контрнаступ з метою повернути місто Херсон.",
-    designed: "Розроблений",
+    places: "Tуристичнi пам'ятки",
+    "freedom-square": "Площа Свободи в Харкові",
+    "freedom-square-description": "Головною і досить неймовірною пам'яткою міста є Площа Свободи (Ploshcha Svobody), одна з найбільших площ у світі площею понад 12 гектарів, на якій проводяться урочисті військові паради, а також концерти та культурні та політичні заходи. Площу оточують численні парки, жваві вулиці, мальовничі фонтани і різні мальовничі кафе-бари під відкритим небом.",
+    "zoo": "Харківський зоопарк",
+    "zoo-description": "Харківський зоопарк-це державний зоологічний парк в Харкові. Харківський зоопарк-найстаріший зоопарк в Україні, він був заснований в 1896 році. Він розташований в самому центрі міста поруч з парком Шевченка. Зоопарк займає територію в 22 гектари, де знайшли свій будинок 6810 тварин 385 видів. Серед них 103 види вважаються рідкісними і знаходяться під охороною. Багато з них добре розмножуються в домашній обстановці Харківського зоопарку.",
+    strelka: "Садова площа Cтрілка",
+    "strelka-description": "Сквер Стрілка розташований в місці злиття річок Харків і Лопань, звідки, за легендою, почав своє походження місто Харків. Сквер Стрілка - одне з найпопулярніших місць відпочинку серед харків'ян.Тут багато дерев, які створюють приємну тінь і відгороджують від шуму великого міста.",
+    "assumption-cathedral": "Успенський кафедральний собор",
+    "assumption-cathedral-description": "Розташована на пагорбі над берегами річки Лопань, це найстаріша православна церква в Україні. Дуже висока дзвіниця була побудована на честь Олександра I, щоб відсвяткувати його перемогу над армією Наполеона Бонапарта. Внутрішня частина дуже багато прикрашена, надзвичайно велика і дуже ефектна - типовий приклад православних культових споруд.",
+    "annunciation-cathedral": "Благовіщенський собор",
+    "annunciation-cathedral-description": "Гарний неовізантійський стиль з п'ятьма куполами та характерною 80-метровою дзвіницею. Усередині цієї величезної будівлі, що вміщає до 4000 чоловік, можна знайти чудові фрески. Він був побудований між 1889 і 1901 роками місцевим архітектором Михайлом Ловцовим.",
+    "shevchenko-park": "Парк Шевченка",
+    "shevchenko-park-description": "Парк Шевченка є центральним районом Харкова і містить безліч пам'яток, що потопають у зелені і великих квіткових площах. У парку є величезні старі дерева, висаджені понад 500 років тому, і вони захищені Кованими залізними огорожами з датою їх посадки. Він великий, з кількома фонтанами, принаймні одним величезним дитячим майданчиком з найякіснішими гірками, майданчиком для скелелазіння. Поблизу Ви можете знайти ресторани, зоопарк і дельфінарій.",
+    metalist: "Спортивний комплекс Mеталіст",
+    "metalist-description": "'Металіст', який включає в себе стадіон 'Металіст', є багатофункціональним стадіоном в Харкові, Україна. Він використовується в основному для футбольних матчів і є домашнім стадіоном харківського ФК 'Металіст 1925'. Стадіон, який був місцем проведення Євро-2012, наразі вміщує 40 003 глядачів.",
+    "gorky-park": "Парк Горького",
+    "gorky-park-description": "Не пропустіть відвідування Центрального парку культури і відпочинку імені Горького, улюбленого місця сімейного відпочинку. У парку є 9 розважальних зон для всіх, які варіюються від екстремальних видів спорту до дитячих ігор, середньовічна зона і французький парк, а також Канатна дорога і найбільше колесо огляду в Україні.",
+    theatre: "Харківський державний академічний театр опери та балету імені М. Лисенка",
+    "theatre-description": "Це перший академічний театр в Україні. Цей один з провідних українських театрів був відкритий в 1925 році. У 2007 році перед театром були побудовані красиві фонтани, які швидко стали дуже популярними. Репертуар включає близько 50 опер і балетів, більшість з яких українські та російські, але є й італійські.",
+    university: "Харківський університет iм. Каразіна",
+    "university-description": "Харківський національний університет імені В. Н.Каразіна (Укр: Харківський національний університет імені В. Н. Каразіна) - один з найбільших вузів України, і раніше в Російській імперії та СРСР. Він був заснований в 1804 році зусиллями Василя Каразіна і став другим найстарішим університетом в сучасній Україні.",
+    "mirror-stream": "Дзеркальнa струя",
+    "mirror-stream-description": "Дзеркальний потік-фонтан в Харкові, Україна. Природний фонтан був виявлений в 1947 році.Фонтан знаходиться поруч з Харківською філармонією. Він був побудований в 1947 році. Він залишається одним з найбільш чудових архітектурних пам'яток Харкова і, завдяки цьому, внесений до Енциклопедії ЮНЕСКО.",
+    designed: "Дизайн",
     designer: "Наталія Висицька",
     "source-code": "Відкритий вихідний код",
     developer: "розробник Наталія Крилова",
@@ -1093,93 +1239,24 @@ const translationObj = {
 
 const languageBtnWrapper = document.querySelector(".language-buttons-wrapper");
 const languageButtons = document.querySelectorAll(".language-btn");
-const translationText = document.querySelectorAll('[data-translate');
+const translationText = document.querySelectorAll("[data-translate");
 languageBtnWrapper.addEventListener("click", function (event) {
   if (event.target.classList.contains("language-btn")) {
     languageButtons.forEach((btn) => {
       btn.classList.remove("current-language");
     });
-    event.target.classList.add('current-language');
-    let language = event.target.getAttribute('data-language');
+    event.target.classList.add("current-language");
+    let language = event.target.getAttribute("data-language");
 
-    translationText.forEach(text => {
-      let dataText = text.getAttribute('data-translate');
+    translationText.forEach((text) => {
+      let dataText = text.getAttribute("data-translate");
       text.textContent = translationObj[language][dataText];
     });
-    if (language === 'ua') {
-      lang = 'ua';
+    if (language === "ua") {
+      lang = "ua";
     }
   }
 });
-
-/*--------------------vertical slider------------------------*/
-
-const upBtn = document.querySelector(".up-button");
-const downBtn = document.querySelector(".down-button");
-const sidebar = document.querySelector(".sidebar");
-const mainSlide = document.querySelector(".main-slide");
-const slideCount = mainSlide.querySelectorAll("div").length;
-const container = document.querySelector(".container");
-const body = document.querySelector("body");
-let activeSlideIndex = 0;
-
-sidebar.style.top = `-${(slideCount - 1) * 400}px`;
-if (body.offsetWidth <= 440) {
-  sidebar.style.top = "";
-  sidebar.style.left = `-${(slideCount - 1) * 400}px`;
-}
-window.addEventListener("resize", () => {});
-
-upBtn.addEventListener("click", () => {
-  changeSlide("up");
-});
-
-downBtn.addEventListener("click", () => {
-  changeSlide("down");
-});
-
-function changeSlide(direction) {
-  if (direction === "up") {
-    activeSlideIndex++;
-    if (activeSlideIndex >= slideCount) {
-      activeSlideIndex = 0;
-    }
-  } else {
-    activeSlideIndex--;
-    if (activeSlideIndex <= 0) {
-      activeSlideIndex = slideCount - 1;
-    }
-  }
-
-  const height = container.clientHeight;
-  const width = container.clientWidth;
-
-  if (body.offsetWidth > 440) {
-    mainSlide.style.transform = `translateY(-${activeSlideIndex * 400}px)`;
-    sidebar.style.transform = `translateY(${activeSlideIndex * 400}px)`;
-  } else if (body.offsetWidth <= 440) {
-    mainSlide.style.transform = `translateX(-${activeSlideIndex * width}px)`;
-    sidebar.style.transform = `translateX(${activeSlideIndex * width}px)`;
-  }
-}
-
-document.addEventListener("keydown", function (event) {
-  if (body.offsetWidth > 440) {
-    if (event.key === "ArrowUp") {
-      changeSlide("up");
-    } else if (event.key === "ArrowDown") {
-      changeSlide("down");
-    }
-  } else if (body.offsetWidth <= 440) {
-    if (event.key === "ArrowLeft") {
-      changeSlide("up");
-    } else if (event.key === "ArrowRight") {
-      changeSlide("down");
-    }
-  }
-});
-
-
 
 
     </script>
